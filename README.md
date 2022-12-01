@@ -31,7 +31,7 @@
 - ER図
 - テーブル定義書
 - アプリケーション詳細設計書
-- UI-Flow
+- [実装機能リスト](https://docs.google.com/spreadsheets/d/1xUfJlv5FiXKI81pIgQG2H8ZrEnq5qfRgFONGGhhbNLE/edit?usp=sharing)
 
 ***
 
