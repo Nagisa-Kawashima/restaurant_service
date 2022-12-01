@@ -56,7 +56,8 @@
 
 ***
 ## 使用素材
-- 画像素材[O-DAN](https://o-dan.net/ja/){:target="_blank"}　
+- 画像素材[O-DAN](https://o-dan.net/ja/) {:target="_blank"}　
+- <p><a href="https://o-dan.net/ja/" target="_blank">O-DAN</a></p>
 - [photoAC](https://www.photo-ac.com/){:target="_blank"}
 - ロゴ素材[Canva](https://www.canva.com/){:target="_blank"}
 - スライド用画像[unDraw](https://undraw.co/illustrations){:target="_blank"}
