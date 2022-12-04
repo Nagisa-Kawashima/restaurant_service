@@ -34,6 +34,7 @@
 - [アプリケーション詳細設計書](https://docs.google.com/spreadsheets/d/1lB4eQnKwceJ4Eyl6pNv6qHHu96OO47HCjrspAxYiFkk/edit?usp=sharing)
 - [実装機能リスト](https://docs.google.com/spreadsheets/d/1xUfJlv5FiXKI81pIgQG2H8ZrEnq5qfRgFONGGhhbNLE/edit?usp=sharing)
 - [ワイヤーフレーム](https://cacoo.com/diagrams/7l8kzSO3v682AH7b/B9B9C)
+- [WBSスケジュール](https://docs.google.com/spreadsheets/d/1yOSA5QnGJMHSqYWwC38_M738kOg0XA6DaZMHgmQugAc/edit?usp=sharing)
 
 ***
 
