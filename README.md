@@ -1,4 +1,4 @@
-# <アプリ名　resutaurant_service>
+# <アプリ名　restaurant_service>
 サイトURL→
 ***
 
