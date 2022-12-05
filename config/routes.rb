@@ -1,18 +1,81 @@
 Rails.application.routes.draw do
- 
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  
-  
-  # 顧客用
-  # URL /customers/sign_in ...
+
+
+  # 顧客用の新規登録とログイン
   devise_for :users, skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
-  
-  # 管理者用
-  # URL /admin/sign_in ...
-  devise_for :admin, skip: [:registrations, :passwords],controllers: {
+
+  # 管理者用のログイン
+  devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
+
+
+  # ユーザ側のルーティング
+
+  scope module: :public do
+    # top ページとaboutページ
+    root to:"homes#top"
+    get "about" => "homes#about"
+    resources :users, only: [:show,:index, :edit, :update] do
+      # フォロー機能
+      resource :relationships, only: [:create, :destroy]
+      get "followings" => "relationships#followings", as: "followings"
+      get "followers" => "relationships#followers", as: "followers"
+      # チャット一覧
+      get "chat_rooms"
+      #下書き機能
+      get "draft_index" => "posts#draft_index"
+      member do
+      get :likes
+      end
+    end
+
+     # ユーザの退会確認ページ
+    get "users/unsubscribe" => "users#unsubscribe", as:"unsubscribe"
+    #ユーザ退会処理
+    patch "users/withdraw" => "users#withdraw", as:"withdrawal"
+
+    # 投稿機能
+    resources :posts do
+      #コメント機能
+      resources :comments, only: [:create, :destroy]
+      #いいね機能
+      resource :likes, only: [:create, :destroy]
+    end
+
+    #キーワード検索
+    get 'search' => 'searches#search'
+    # タグ検索結果ページ
+    get "post/tag/:name" => "posts#tag"
+    # チャット機能
+    resources :chats, only: [:create, :show]
+     #通知機能
+    resources :notifications, only: [:index, :destroy]
+  end
+
+
+  # 管理者側のルーティング
+
+  namespace :admin do
+    # ユーザーの管理画面
+    resources :users, except: [:new, :create, :destroy]do
+      # 一人のユーザーに紐づく投稿
+      resources :posts, only: [:index, :show, :destroy]
+      # 一人のユーザーに紐づくコメント
+      resources :post_comments, only: [:index, :destroy]
+
+      get "followings" => "relationships#followings", as: "followings"
+      get "followers" => "relationships#followers", as: "followers"
+    end
+    # タグ作成編集削除機能
+    resources :tags, except:[:show, :index]
+  end
+
+
+
 end
