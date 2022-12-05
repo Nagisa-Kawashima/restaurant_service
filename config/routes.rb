@@ -26,9 +26,9 @@ Rails.application.routes.draw do
       resource :relationships, only: [:create, :destroy]
       get "followings" => "relationships#followings", as: "followings"
       get "followers" => "relationships#followers", as: "followers"
-      # チャット一覧
+      # チャット一覧ページ用
       get "chat_rooms"
-      #下書き機能
+      #一人のユーザーに紐づく下書き機能
       get "draft_index" => "posts#draft_index"
       member do
       get :likes
@@ -68,7 +68,7 @@ Rails.application.routes.draw do
       resources :posts, only: [:index, :show, :destroy]
       # 一人のユーザーに紐づくコメント
       resources :post_comments, only: [:index, :destroy]
-
+      #一人のユーザーに紐づくフォローページ
       get "followings" => "relationships#followings", as: "followings"
       get "followers" => "relationships#followers", as: "followers"
     end
