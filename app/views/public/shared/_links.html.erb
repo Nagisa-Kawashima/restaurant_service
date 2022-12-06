@@ -1,9 +1,9 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
+  <%= link_to "ログイン画面へ", new_session_path(resource_name), class:"btn btn-outline-dark w-50 mb-3"%><br />
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+  <%= link_to "新規登録画面へ", new_registration_path(resource_name), class:"btn btn-outline-dark w-50 mb-3" %><br />
 <% end %>
 
 <!--必要な機能だけ残してあとは削除する-->
