@@ -1,0 +1,11 @@
+<div class="container">
+  <% if @user == current_user %>
+  <h4 class="my-5"><i class="fas fa-home"></i> マイページ</h4>
+  <% else %>
+  <h4 class="my-5"><i class="fas fa-home"></i> <%= @user.name %> さんのページ</h4>
+  <% end %>
+  <div class="row">
+    <%= render 'public/users/info', user: @user %>
+    <%= render 'public/users/index', user: @user, post: @post, posts: @posts %>
+  </div>
+</div>

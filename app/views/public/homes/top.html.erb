@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <!--カルーセル-->
+      <div id="carousel-1" class="carousel slide"data-bs-ride="carousel">
+      <!--カルーセルの中央下部にインジケータを表示-->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-1" data-slide-to="1"></li>
+        <li data-target="#carousel-1" data-slide-to="2"></li>
+      </ol>
+      <!--カルーセルの内部コンテンツ-->
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="5000">
+          <%= image_tag 'topimage1.jpg', class: 'd-block center w-100', alt: 'First slide' %>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+          <%= image_tag 'topimage1.jpg', class: 'd-block w-100', alt: 'Second slide' %>
+        </div>
+        <div class="carousel-item"data-bs-interval="5000">
+          <%= image_tag 'topimage1.jpg', class: 'd-block w-100', alt: 'Third slide' %>
+        </div>
+      </div>
+      <!--左右の矢印アイコン表示-->
+        <a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+      <div class="top_list">
+      <div class="top1">
+        <p><b>初めてご利用の方</b><br>新規登録お願いします</p>
+        <%= link_to '新規登録', new_user_registration_path, class: "btn btn-outline-success" %>
+      </div>
+      <div class="top2">
+        <p><b>既に登録済みの方</b><br>ログインしてください</p>
+        <%= link_to 'ログイン', new_user_session_path, class: "btn btn-outline-primary" %>
+      </div>
+      <div class="top3">
+        <p><b>サイトを覗いてみる</b><br>ゲストユーザーとして<br>ご利用いただけます</p>
+        <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "btn btn-outline-info" %>
+      </div>
+      </div>
+      <!--新着投稿欄-->
+      <p class="top_font">new post</p>
+      <div class="newpost">
+        <% @new_posts.each do |new_posts| %>
+        <div class="newpost_flame">
+          <%= link_to posts_path do %>
+          <%= image_tag new_posts.get_image,class: "image_new" %>
+　　　　　<p><strong><%= new_posts.title %></strong></p>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

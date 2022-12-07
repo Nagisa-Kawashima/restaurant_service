@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/Studiosity/carmen-rails.git
+  revision: 1bf91d6302af81528afcb8b82ce33f93ee7264cf
+  branch: master
+  specs:
+    carmen-rails (1.0.1)
+      carmen (~> 1.0)
+      rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -81,11 +90,8 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
-    carmen (1.0.2)
+    carmen (1.1.3)
       activesupport (>= 3.0.0)
-    carmen-rails (1.0.1)
-      carmen (~> 1.0.0)
-      rails
     childprocess (4.1.0)
     coderay (1.1.3)
     concurrent-ruby (1.1.10)
@@ -309,7 +315,7 @@ DEPENDENCIES
   bootstrap5-kaminari-views (~> 0.0.1)
   byebug
   capybara (>= 3.26)
-  carmen-rails (~> 1.0.0)
+  carmen-rails!
   devise
   dotenv-rails
   enum_help

@@ -11,6 +11,11 @@
           <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "あなたのお名前を入力してください", class: "form-control w-50 mx-auto" %>
         </div>
         <div class="field mt-3">
+          <%= f.label :国名 %><br />
+            <%= f.country_select :country_code, {include_blank: "選択して下さい"}, class: 'form-select form-control w-50 mx-auto mt-2' %>
+
+        </div>
+        <div class="field mt-3">
           <i class="fas fa-envelope"></i> <%= f.label :メールアドレス %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "あなたのメールアドレスを入力してください" , class: "form-control w-50 mx-auto mt-2"%>
         </div>

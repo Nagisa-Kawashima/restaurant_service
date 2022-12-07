@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-auto">
+      <h5 class="text-center"><i class="fas fa-pencil-alt"></i>ユーザー情報編集</h5>
+        <%= form_with model: @user, url: user_path do |f|%>
+        <div class="post_form">
+          <i class="fas fa-user-circle"></i> <%= f.label :profile_image,"アイコン画像の設定" %><br>
+          <%= f.file_field :profile_image,accept: 'image/*' %><br>
+  
+          <i class="fas fa-file-signature"></i> <%= f.label :name,"名前" %><br>
+          <%= f.text_field :name %><br>
+  
+          <i class="far fa-envelope"></i> <%= f.label :email,"メールアドレス" %><br>
+          <%= f.text_field :email, placeholder: "メールアドレスを入力" %><br>
+  
+          <i class="far fa-smile"></i> <%= f.label :introduction,"自己紹介" %><br>
+          <%= f.text_area :introduction, placeholder: "自己紹介を入力" %><br>
+  
+          <%= f.submit '変更する', class: "btn btn-success" %>
+  　　　     <%= link_to '退会する', unsubscribe_path, class: 'btn btn-secondary'%>
+        </div>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+ 　

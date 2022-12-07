@@ -72,4 +72,4 @@ gem 'rubocop-packaging', require: false
 gem 'rubocop-rspec'
 gem 'kaminari','~> 1.2.1'
 gem 'bootstrap5-kaminari-views', '~> 0.0.1'
-gem 'carmen-rails', '~> 1.0.0'
+gem 'carmen-rails', :git => 'https://github.com/Studiosity/carmen-rails.git', :branch => 'master'

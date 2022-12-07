@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-8">
+      <% if @user == current_user  %>
+        <h4 class="mb-4 text-center"><i class="fas fa-user-friends"></i> フォローしている人の一覧(<%= @users.count %>人)</h4>
+      <% else %>
+        <h4 class="mb-4 text-center"><i class="fas fa-user-friends"></i><%= @user.name %> さんがフォローしている人(<%= @users.count %>人)</h4>
+      <% end %>
+      <% if @users.exists? %>
+      <% @users.each do |user| %>
+      <div class="user_index">
+      <table class="table">
+        <thead>
+          <tr class="text-center">
+            <th style="width: 20%">画像</th>
+            <th>名前</th>
+            <th>フォロー</th>
+            <th>フォロワー</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="text-center">
+            <td> <%= image_tag user.get_profile_image,class: "plofile_index"%></td>
+            <td><%= user.name %></td>
+            <td><%= user.followings.count %></td>
+            <td><%= user.followers.count %></td>
+            <td><%= link_to '詳細へ', user %></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <% end %>
+      <% else %>
+        <p>ユーザーはいません</p>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="pagination">
+ <%= paginate @users %>
+</div>

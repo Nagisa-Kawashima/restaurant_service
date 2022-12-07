@@ -1,0 +1,22 @@
+<div class ="container" >
+  <div class="row">
+    <div class="col-12">
+      <h5 class="text-center"><i class="far fa-heart"></i><%= @user.name %>さんのいいねした投稿(<%= @user.likes.count %>件)</h5>
+      <div class="post_list">
+      <% if @like_posts.present? %>
+        <% @like_posts.each do |post| %>
+          <div class="post">
+           <%= link_to post_path(post.id) ,data: {"turbolinks" => false}  do %>
+           <%= image_tag post.get_image,class: "image_index"%>
+           <% end %>
+           <p><%= post.title %></p>
+           <p><i class="far fa-comment-alt"></i><%= link_to " #{post.comments.count} ", post_path(post.id) %></p>
+          </div>
+        <% end %>
+      <% else %>
+        <p>いいねした投稿はありません</p>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

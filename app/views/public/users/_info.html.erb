@@ -1,0 +1,57 @@
+<div class="col-md-4">
+  <div class="plofile_image">
+    <%= image_tag user.get_profile_image,class: "user_image"%>
+  </div>
+  <div class="text-center my-3">
+  <% if current_user != user %>
+    <%= render "public/relationships/btn", user: user %>
+  <% end %>
+  </div>
+  <table class="table">
+    <tr>
+      <th>名前</th>
+        <td><%= user.name %></td>
+    </tr>
+    <% if user == current_user%>
+    <tr>
+      <th>メールアドレス</th>
+        <td><%= user.email %></td>
+    </tr>
+    <% end %>
+    <tr>
+      <th>自己紹介</th>
+        <td><%= simple_format(user.introduction) %></td>
+    </tr>
+    <tr>
+      <th>フォロー</th>
+        <td>
+        <%= link_to user_followings_path(user) do %>
+        <%= user.followings.count %>
+        <% end %>
+        </td>
+    </tr>
+    <tr>
+       <th>フォロワー</th>
+        <td>
+        <%= link_to user_followers_path(user) do %>
+        <%= user.followers.count %>
+        <% end %>
+        </td>
+    </tr>
+  </table>
+<%=link_to likes_user_path(user),class: 'btn btn-outline-success w-100' do %>
+    <i class="fas fa-heart"></i>いいねした投稿 (<%= user.likes.count %>)
+  <% end %>
+  <% if user == current_user%>
+    <%=link_to user_draft_index_path(user),class: 'mt-2 btn btn-outline-info w-100' do %>
+      <i class="fas fa-lock"></i> 下書き投稿 (<%= current_user.posts.draft.count %>)
+    <% end %>
+    <%= link_to  user_chat_rooms_path(current_user), class: 'mt-2 btn btn-outline-secondary w-100'  do %>
+      <i class="far fa-envelope"></i> チャットルーム一覧
+    <% end %>
+    <%=link_to notifications_path,class: 'mt-2 btn btn-outline-secondary w-100' do %>
+      <i class="fas fa-bell"></i> 通知一覧
+    <% end %>
+    <%= link_to '編集', edit_user_path, class: 'mt-2 btn btn-outline-primary w-100'%>
+  <% end %>
+</div>

@@ -1,0 +1,24 @@
+<div class="container d-flex justify-content-center">
+  <div class="row mt-3 mb-5">
+    <div class="col-12 text-center">
+      <div class="post_show">
+        <h4><strong>本当に退会しますか？</strong></h4>
+        <b>※退会前に下記項目をご確認ください。</b>
+        <div class="text-left customize-border ">
+          <ul>
+            <li>ご登録いただいたアカウント情報の閲覧ができなくなります。</li>
+            <li>ご自身の投稿が閲覧ができなくなります。</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+         <p>上記内容をご確認後、<br />
+         退会される場合は退会するをクリックしてください。</p>
+        </div>
+        <div class="col-xs-3 mb-3">
+          <%= link_to '退会しない', edit_user_path(current_user), data: {"turbolinks" => false}, class: "btn btn-outline-success" %>
+          <%= link_to '退会する', withdrawal_path, data: {confirm: "本当に退会しますか？"},method: :patch, class: "ml-5 btn btn-outline-danger px-4" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

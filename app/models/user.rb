@@ -45,6 +45,43 @@ class User < ApplicationRecord
     profile_image
   end
 
+
+#   国名表示の設定
+  def counrty 
+    Carmen::Country.coded(country_code)
+  end
+  
+  
+   #退会ユーザはログインできないようにする,false であればtrueを返す
+  def active_for_authentication?
+    super && (self.is_deleted == false)
+  end
+  
+  # フォロー機能
+  # フォローしたときの処理
+  def follow(user_id)
+    relationships.create(followed_id: user_id)
+  end
+  # フォローを外す処理
+  def unfollow(user_id)
+    relationships.find_by(followed_id: user_id).destory
+  end
+  # フォローをしているかの判定
+  def following?(user)
+    following.include?(user)
+  end
+  
+  # ゲストログイン機能
+  def self.guest
+    find_or_create_by!(name: 'guestuser', email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = 'guestuser'
+    end
+  end
+  
+  
+  
+
 end
 
 
