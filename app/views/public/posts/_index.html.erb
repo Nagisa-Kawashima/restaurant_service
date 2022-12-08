@@ -1,0 +1,19 @@
+<div class="post_list">
+  <% posts.each do |post| %>
+   <% if post.user.is_deleted == false %>
+     <div class="post">
+      <%= link_to post_path(post.id),data: {"turbolinks" => false} do %>
+       <%= image_tag post.get_image,class: "image_index"%>
+      <% end %>
+      <p><strong><%= post.title %></strong></p>
+      <p><i class="far fa-comment-alt"></i><%= link_to " #{post.comments.count} ", post_path(post.id) %>
+        &nbsp;<i class="far fa-heart"></i><%= link_to " #{post.likes.count} ", post_path(post.id) %>
+      </p>
+      <p class="small"><%= l post.created_at %></p>
+     </div>
+   <% end %>
+  <% end %>
+</div>
+<div class="pagination">
+  <%= paginate posts %>
+</div>

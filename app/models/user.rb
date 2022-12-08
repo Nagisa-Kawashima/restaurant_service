@@ -66,7 +66,9 @@ class User < ApplicationRecord
   def unfollow(user_id)
     relationships.find_by(followed_id: user_id).destory
   end
-  # フォローをしているかの判定
+
+  # 既にフォローしているか判定
+  # 　include?(引数)メソッド： 対象の文字列に引数で指定した文字列が含まれているか検索して真偽値を返す
   def following?(user)
     following.include?(user)
   end

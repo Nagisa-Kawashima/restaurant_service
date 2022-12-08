@@ -1,0 +1,22 @@
+<div class ="container" >
+  <div class="row">
+    <div class="col-12">
+      <h5 class="text-center"><i class="fas fa-lock"></i> 下書き投稿(<%= current_user.posts.draft.count %>件)</h5>
+      <div class="post_list">
+      <% if @posts.exists? %>
+      <% @posts.each do |post| %>
+        <div class="post">
+         <%= link_to post_path(post),data: {"turbolinks" => false}  do %>
+         <%= image_tag post.get_image,class: "image_index"%>
+         <% end %>
+         <p><strong><%= post.title %></strong></p>
+         <p><i class="far fa-comment-alt"></i><%= link_to " #{post.comments.count} ", post_path(post.id) %></p>
+        </div>
+      <% end %>
+      <% else %>
+        <p>下書き投稿はありません</p>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+    <h3 class="text-center"><span><i class="fas fa-search fa-xs"></i></span>#<%= @tag.name %>の検索結果(<%= @post.count %>件)</h3>
+    <%= render 'public/posts/index', posts: @post %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <!--投稿詳細-->
+    <%= render 'show', post: @post,user_post: @user_post %>
+    <div class="container">
+      <div class="post_show">
+        <!--コメント表示-->
+        <div class="comments-area">
+        <%= render 'public/post_comments/index', post: @post %>
+        </div>
+        <!--コメントフォーム-->
+        <div class="new-comment">
+        <%= render 'public/post_comments/form',post: @post,comment: @comment %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

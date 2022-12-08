@@ -23,6 +23,10 @@
         <td><%= simple_format(user.introduction) %></td>
     </tr>
     <tr>
+      <th>出身国</th>
+        <td><%= user.country_code %></td>
+    </tr>
+    <tr>
       <th>フォロー</th>
         <td>
         <%= link_to user_followings_path(user) do %>

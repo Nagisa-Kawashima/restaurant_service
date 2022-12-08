@@ -24,6 +24,38 @@ class Post < ApplicationRecord
   #下書き機能  公開中 /published,下書き  /draft 
   enum is_draft: { draft: 0, published: 1 }
 
+
+
+  # いいね機能
+  def liked_by?(user)
+    likes.exists?(user_id: user.id)
+  end
+  
+  # ハッシュタグ機能
+  #DBへのコミット直前に実施する
+  after_create do
+    post = Post.find_by(id: self.id)
+    tags = self.content.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
+    post.tags = []
+    tags.uniq.map do |tag|
+       #ハッシュタグは先頭の'#'を外した上で保存
+      tag = Tag.find_or_create_by(name: tag.downcase.delete('#'))
+      post.tags << tag
+    end
+  end
+  
+  before_update do
+    post = Post.find_by(id: self.id)
+    post.tags.clear
+    tags = self.content.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
+    tags.uniq.map do |tag|
+      tag = Tag.find_or_create_by(name: tag.downcase.delete('#'))
+      post.tags << tag
+    end
+  end
+  
+  
+  
 end
 
 
