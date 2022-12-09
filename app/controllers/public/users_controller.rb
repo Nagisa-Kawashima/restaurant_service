@@ -56,10 +56,16 @@ class Public::UsersController < ApplicationController
     likes = Like.where(user_id: @user.id).pluck(:post_id)
     @like_posts = Post.find(likes)
   end
+  # チャットルームの一覧ページ用
+  def chat_rooms
+    user_rooms = current_user.rooms
+    follow_users = current_user.followers
+    @chat_room_users = User.joins(:rooms).where(rooms: { id: user_rooms }).where(id: follow_users).where.not(id: current_user)
+  end
+  
   private
   def user_params
     params.reauire(:user).permit(:name, :email, :password, :introduction, :is_deleted, :profile_image, :country_code)
-    # ダメだったら消すこと
   end
   
   def ensure_correct_user

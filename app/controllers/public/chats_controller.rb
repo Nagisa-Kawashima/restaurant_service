@@ -1,8 +1,8 @@
 class Public::ChatsController < ApplicationController
   before_action :authenticate_user!
   before_action :reject_non_related, only: [:show]
-  
-  
+
+
   def show
     # チャットするユーザーの情報を取得する
     @user = User.find(params[:id])
@@ -24,7 +24,7 @@ class Public::ChatsController < ApplicationController
     @chats = @room.chats.order(created_at: "DESC")
     @chat = Chats.new(room_id: @room.id)
   end
-  
+
   def create
     chat = current_user.chats.new(chats_params)
     if chat.save
@@ -33,13 +33,13 @@ class Public::ChatsController < ApplicationController
       redirect_to request.referer, notice: "メッセージを送信できませんでした。", alert: "入力内容をご確認ください。"
     end
   end
-  
+
   private
-  
+
   def chat_params
     params.require(:chat).permit(:message, :room_id)
   end
-  
+
   def reject_non_related
     user = User.find(params[:id])
     unless current_user.following?(user) && user.following?(current_user)

@@ -1,0 +1,24 @@
+<% chats.each do |chat| %>
+  <% if chat.user_id == current_user.id %>
+    <!--自分のメッセージ（右側）-->
+    <div class="my-message">
+      <p><%= chat.message %></p>
+      <div class="small">
+        <%= l chat.created_at %>
+      </div>
+    </div>
+  <% else %>
+    <!--相手のメッセージ（左側）-->
+    <div class="mt-1">
+      <%= link_to user_path(user) do %>
+        <%= image_tag user.get_profile_image, class: "chat-user-image" %>
+      <% end %>
+      <div class="user-message">
+        <p><%= chat.message %></p>
+      </div>
+      <div class=" small">
+        <%= l chat.created_at %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

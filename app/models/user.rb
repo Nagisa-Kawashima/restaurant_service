@@ -73,6 +73,21 @@ class User < ApplicationRecord
     following.include?(user)
   end
   
+  # フォローの通知をするメソッドを作成
+  def create_notification_follow!(current_user)
+    temp = Notification.where(["visiter_id = ? and visited_id = ? and action = ? ",current_user.id, id, 'follow'])
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        visited_id: id,
+        action: 'follow'
+      )
+      # if文でnotificationに登録するデータが有効かチェックして保存
+      notification.save if notification.valid?
+    end
+  end
+      
+
+  
   # ゲストログイン機能
   def self.guest
     find_or_create_by!(name: 'guestuser', email: 'guest@example.com') do |user|
