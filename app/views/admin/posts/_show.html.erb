@@ -13,7 +13,9 @@
 <div class="col-lg-6 mt-4">
   <div class="post_show">
     <h5><strong><%= post.title %></strong></h5>
-    <p><%= render_with_tags(simple_format(post.expl))%></p>
-    <p class="like-btn"><%= render 'public/likes/btn', post: post %></p>
+    <p><%= render_with_tags(simple_format(post.explaination))%></p>
+    <div class="text-center mt-3">
+     <%= link_to '削除', post, method: :delete, data: {confirm: "投稿を削除します。よろしいですか？"},class: 'btn btn-danger w-50'%>
+    </div>
   </div>
 </div>

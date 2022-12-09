@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-8">
+      <div class="m-3">
+        <h5 class="text-center"><i class="fas fa-cog"></i>ハッシュタグを編集</h5>
+        <%= form_with model: @tag, url: admin_tag_path(@tag), method: :patch do |f| %>
+          <i class="fas fa-tag"></i> <%= f.label :name, "タグ名" %><br />
+          <%= f.text_field :name %>
+          <%= f.submit "変更する", class: "btn btn-outline-success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

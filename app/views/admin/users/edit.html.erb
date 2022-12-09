@@ -1,0 +1,18 @@
+<div class ="container" >
+  <div class="row">
+    <div class='col-md-8'>
+    <h4 class="my-4"><i class="fas fa-user-edit"></i>ユーザー編集</h4>
+      <%= form_with model: @user,url: admin_user_path(@user), method: :PATCH do |f|  %>
+      <%= f.label :"名前" %><br>
+      <%= f.text_field :name %> <br>
+      <%= f.label :email,"メールアドレス" %><br>
+      <%= f.text_field :email %><br>
+      <%= f.radio_button :status, "false" %>
+      <%= f.label :status, "有効", value: false %>
+      <%= f.radio_button :status, "true" %>
+      <%= f.label :status, "退会", value: true %><br>
+      <%= f.submit '変更する', class: "btn btn-success w-25" %>
+      <% end %>
+    </div>
+  </div>
+</div>

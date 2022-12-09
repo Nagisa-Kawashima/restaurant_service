@@ -101,9 +101,9 @@ class Post < ApplicationRecord
       notification.save if notification.valid?
     end
   end
-  
-  
-  #検索機能　完全一致で検索
+
+
+  #検索機能　完全一致で検索する
   def self.search(search)
     if search != nil
       Post.published.where('title LIKE(?) OR explaination LIKE(?)' , "%#{search}%", "%#{search}%")
@@ -111,9 +111,8 @@ class Post < ApplicationRecord
       Post.all
     end
   end
-  
-  
+
+
 end
 
 
- 

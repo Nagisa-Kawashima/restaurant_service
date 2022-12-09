@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+.new-img {
+  width: 400px;
+  height: 300px;
+  object-fit: cover; /*ボックスが画像で埋まるようにリサイズ*/
+}
