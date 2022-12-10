@@ -6,6 +6,8 @@
         <p><%= @user.name %></p>
         <i class="far fa-file-alt"></i> 自己紹介文
         <p><%= @user.introduction %></p>
+        <i class="far fa-file-alt"></i> 国名
+        <p><%= @user.country.nam %></p>
         <i class="fas fa-envelope"></i> メールアドレス
         <p><%= @user.email %></p>
         <p><%= link_to edit_admin_user_path(@user), class: "btn btn-outline-success w-50" do %>
@@ -15,7 +17,7 @@
             投稿一覧 (<%= @user.posts.count %>)
           <% end %></p>
         <p><%= link_to admin_user_comments_path(@user), class: "btn btn-outline-dark w-50" do %>
-            コメント一覧 (<%= @user.comments.count %>)
+            コメント一覧 (<%= @user.post_comments.count %>)
           <% end %></p>
     </div>
   </div>

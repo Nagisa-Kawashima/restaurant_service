@@ -7,10 +7,14 @@
       <%= f.text_field :name %> <br>
       <%= f.label :email,"メールアドレス" %><br>
       <%= f.text_field :email %><br>
-      <%= f.radio_button :status, "false" %>
-      <%= f.label :status, "有効", value: false %>
-      <%= f.radio_button :status, "true" %>
-      <%= f.label :status, "退会", value: true %><br>
+      <%= f.label :introduction,"自己紹介文" %><br>
+      <%= f.text_area :introduction %><br>
+      <%= f.label :country_code,"国名" %><br>
+      <%= f.country_select :country_code, {include_blank: "選択して下さい"}, class: 'form-select' %><br>
+      <%= f.radio_button :is_deleted, "false" %>
+      <%= f.label :is_deleted, "有効", value: false %>
+      <%= f.radio_button :is_deleted, "true" %>
+      <%= f.label :is_deleted, "退会", value: true %><br>
       <%= f.submit '変更する', class: "btn btn-success w-25" %>
       <% end %>
     </div>

@@ -1,0 +1,92 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000000;">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <%= image_tag 'logo1.jpg', class: 'img-fluid' %>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+        <% if user_signed_in? %>
+          <!--会員ページにてログインした場合-->
+          <li>
+            <%= link_to user_path(current_user),class: 'nav-link text-light' do %>
+              <i class="fas fa-home"></i>マイページ
+            <% end %>
+          </li>
+          <li>
+            <%= link_to users_path, class: 'nav-link text-light' do %>
+              <i class="fas fa-users"></i> ユーザ一覧
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_post_path,class: 'nav-link text-light', data: {"turbolinks" => false} do %>
+              <i class="fas fa-pen"></i>新規投稿
+            <% end %>
+          </li>
+          <li>
+            <%=  link_to posts_path ,class: 'nav-link text-light', data: {"turbolinks" => false} do %>
+              <i class="fas fa-search"></i>投稿一覧
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete,class: 'nav-link text-light' do %>
+              <i class="fas fa-sign-out-alt"></i> ログアウト
+            <% end %>
+          </li>
+          <li><%= render 'public/searches/form' %></li>
+           <!--管理者用-->
+        <% elsif admin_signed_in? %>
+          <li>
+            <%= link_to admin_users_path, class: 'nav-link text-light' do %>
+              <i class="fas fa-users-cog fas-xs"></i> ユーザ一覧
+            <% end %>
+          </li>
+          <li>
+            <%= link_to admin_user_posts_path, class: 'nav-link text-light' do %>
+              <i class="fas fa-tags"></i>投稿一覧
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_admin_tag_path, class: 'nav-link text-light' do %>
+              <i class="fas fa-tags"></i>タグ管理
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
+              <i class="fas fa-sign-out-alt"></i> ログアウト
+            <% end %>
+          </li>
+        <!--ログインしていない場合-->
+        <% else %>
+          <li>
+            <%= link_to about_path, class: 'nav-link text-light' do %>
+              <i class="fas fa-coffee"></i> ABOUT
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_user_registration_path, class: 'nav-link text-light' do %>
+              <i class="fas fa-user-plus"></i> 新規登録
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_user_session_path, class: 'nav-link text-light' do %>
+              <i class="fas fa-sign-in-alt"></i> ログイン
+            <% end %>
+          </li>
+            <li>
+            <%= link_to users_guest_sign_in_path, method: :post, class: 'nav-link text-light' do %>
+              <i class="fas fa-user-check"></i> ゲストログイン
+            <% end %>
+          </li>
+            </ul>
+          </div>
+          </nav>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

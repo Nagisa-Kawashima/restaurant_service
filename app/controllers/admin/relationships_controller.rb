@@ -1,16 +1,6 @@
 class Admin::RelationshipsController < ApplicationController
-  # before_action :authenticate_user!
-  def create
-    current_user.follow(params[:user_id])
-    @user = User.find(params[:user_id])
-    @user.create_notification_follow!(current_user)
-    redirect_to request.referer, notice: "フォローしました。"
-  end
-  
-  def destroy
-    current_user.unfollow(params[:user_id])
-    redirect_to request.referer, notice: "フォロー解除しました。"
-  end
+  # before_action :authenticate_admin!
+ 
   
   # relationshipsの一覧ページ作成
   def followings

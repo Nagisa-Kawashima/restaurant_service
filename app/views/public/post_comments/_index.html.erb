@@ -1,3 +1,29 @@
+<% if post.post_comments.present? %>
+
+  <p>コメント<i class="far fa-comment-alt"></i>　<%= post.post_comments.count %></p>
+  <% post.post_comments.each do |comment| %>
+    <%= post_comment.comment %>
+    <%= comment.created_at.strftime('%Y/%m/%d') %>
+    <%= link_to user_path(comment.user),class: "text-dark" do  %>
+     <%= comment.user.name %>
+     <%= image_tag comment.user.get_profile_image, class: "comment-user-image" %>
+    <% end %>
+    <% if comment.user == current_user %>
+      <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"} %>
+      <% if comment.score >= 0 %>
+        good comment <i class="fas fa-laugh-squint"></i>
+      <% elsif post_comment.score < 0 %>
+        bad comment <i class="fas fa-frown"></i>
+      <% else %>
+      <% end %>
+    <% end %><br>
+  <% end %>
+
+<% else %>
+  <p>コメントはまだありません</p>
+<% end %>
+
+
 <% if post.comments.present? %>
   <p>コメント<i class="far fa-comment-alt"></i>　<%= post.comments.count %></p>
   <% post.comments.each do |comment| %>
@@ -5,7 +31,7 @@
   <%= comment.created_at.strftime('%Y/%m/%d') %>
     <%= link_to user_path(comment.user),class: "text-dark" do  %>
      <%= comment.user.name %>
-     <%= image_tag comment.user.get_profile_image, class: "comment-user-image" %>
+     <%= image_tag comment.user.get_image, class: "comment-user-image" %>
     <% end %>
     <% if comment.user == current_user %>
       <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"} %>

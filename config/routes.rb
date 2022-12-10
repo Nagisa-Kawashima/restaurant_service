@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
-  
+
   # ゲストユーザ　ログイン
   devise_scope :user do
     post "users/guest_sign_in", to: "public/sessions#guest_sign_in"
@@ -49,7 +49,7 @@ Rails.application.routes.draw do
     # 投稿機能
     resources :posts do
       #コメント機能
-      resources :comments, only: [:create, :destroy]
+      resources :post_comments, only: [:create, :destroy]
       #いいね機能
       resource :likes, only: [:create, :destroy]
     end

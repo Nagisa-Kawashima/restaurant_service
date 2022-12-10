@@ -5,11 +5,11 @@
       <table class="table table-hover">
         <thead class="table-area">
           <tr>
-          <th>名前</th>
-          <th>メールアドレス</th>
-          <th>ユーザーステータス</th>
-          <th></th>
-          <th></th>
+            <th>名前</th>
+            <th>メールアドレス</th>
+            <th>ユーザーステータス</th>
+            <th>国名</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -19,7 +19,8 @@
                <%= user.name %>
             </td>
             <td><%= user.email%></td>
-            <td><% if user.status == false %>
+            <td><%= user.country.name %></td>
+            <td><% if user.is_deleted == false %>
                   <p class="text-success font-weight-bold">有効</p>
                 <% else %>
                   <p class="text-secondary font-weight-bold">退会</p>
