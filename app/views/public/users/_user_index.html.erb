@@ -13,7 +13,7 @@
     <% users.each do |user| %>
       <tr class="text-center">
       <% if user.is_deleted == false %>
-        <td><%= image_tag user.get_image,class: "plofile_index" %></td>
+        <td><%= image_tag user.get_profile_image,class: "plofile_index", size:  '100x100' %></td>
         <td><%= user.name %></td>
         <td><%= user.followings.count %></td>
         <td><%= user.followers.count %></td>

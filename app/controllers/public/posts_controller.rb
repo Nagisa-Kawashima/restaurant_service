@@ -1,10 +1,10 @@
 class Public::PostsController < ApplicationController
   # before_action :authenticate_user!
-  
+
   def new
     @post = Post.new
   end
-  
+
   def create
     @post = Post.new(post_params)
     if @post.user_id = current_user.id
@@ -15,21 +15,21 @@ class Public::PostsController < ApplicationController
       end
     end
   end
-  
+
   def index
     @post = Post.new
     # Post.publishedとすることで、投稿されたものだけを取得する。(下書きのものを取得しない)
     @posts =  Post.published.order(created_at: :desc).page(params[:page]).per(6)
   end
-  
+
   def show
-    @post = Post.fins(params[:id])
+    @post = Post.find(params[:id])
     @comment = PostComment.new
     # @tags = @post.tags
     @user_post = @post.user
-    
+
   end
-  
+
   def edit
     @post = Post.find(params[:id])
     if current_user = @post.user
@@ -42,7 +42,7 @@ class Public::PostsController < ApplicationController
       redirect_to posts_path, alert: "本人以外更新できません。"
     end
   end
-  
+
   def destroy
     @post = Post.find(params[:id])
     if current_user == @post.user
@@ -52,21 +52,21 @@ class Public::PostsController < ApplicationController
       redirect_to post_path, alert: "本人以外は投稿を削除することが出来ません "
     end
   end
-  
-  
+
+
   # 下書き投稿のページ
   def draft_index
     @posts = current_user.posts.draft.reverse_order
-    
+
   end
-  
+
   # タグ検索の一覧ページ
   def tag
     @tag = Tag.find_by(name: params[:name])
     @post = @tag.posts.page(params[:page])
   end
-  
-  
+
+
   def post_choice
     if (params[:id]).present?
       @post = Post.find(params[:id])
@@ -75,13 +75,13 @@ class Public::PostsController < ApplicationController
     end
   end
 
-   
+
   private
-  
+
   def post_params
     params.require(:post).permit(:user_id, :title, :explaination, :is_draft, :image)
   end
-  
+
   def ensure_current_user
     @post = Post.find(params[:id])
     unless @post.user == current_user

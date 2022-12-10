@@ -2,9 +2,16 @@
 
 class Public::SessionsController < Devise::SessionsController
   before_action :configure_sign_in_params, only: [:create]
-  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  
+
+
+
+  def guest_sign_in
+    user = User.guest
+    sign_in user
+    redirect_to user_path(user), notice: "ゲストユーザーとしてログインしました。"
+  end
+
   # GET /resource/sign_in
   def new
     super
@@ -22,12 +29,12 @@ class Public::SessionsController < Devise::SessionsController
   def after_sign_in_path_for(resource)
     root_path
   end
-  
+
   def after_sign_out_path_for(resource)
     root_path
   end
 
-  
+
   protected
   def reject_user
     # ログイン時に入力した名前とパスワードの情報を取得する
@@ -42,12 +49,12 @@ class Public::SessionsController < Devise::SessionsController
       flash[:notice] = "項目を入力してください"
     end
   end
-  
+
   def configure_sign_in_params
-    devise_parameter_sanitizer.permit(:sign_in, keys: [:email, :passward])
-   
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:email, :password])
+
   end
 
 end
- 
+
 

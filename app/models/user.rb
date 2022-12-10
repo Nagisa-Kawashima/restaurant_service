@@ -26,7 +26,7 @@ class User < ApplicationRecord
   has_many :rooms, through: :user_rooms
 
  #自分からの通知を送るテーブルをactive_notificationsと命名する、参照先テーブルはNotification、外部キーであるvisitor_idを命名する
-  has_many :active_notifications, foreign_key: :visitor_id, class_name: "Notification", dependent: :destroy
+  has_many :active_notifications, foreign_key: :visiter_id, class_name: "Notification", dependent: :destroy
   #相手からの通知を受け取ったテーブルをpassive_notificationsと命名する、参照先テーブルはNotification、外部キーであるvisited_idを命名する
   has_many :passive_notifications, foreign_key: :visited_id, class_name: "Notification", dependent: :destroy
 
@@ -40,23 +40,23 @@ class User < ApplicationRecord
   def get_profile_image
     unless profile_image.attached?
       file_path = Rails.root.join("app/assets/images/no_image.jpg")
-      product_image.attach(io: File.open(file_path), filename: "no_image.jpg", content_type: "image/jpeg")
+      profile_image.attach(io: File.open(file_path), filename: "no_image.jpg", content_type: "image/jpeg")
     end
     profile_image
   end
 
 
 #   国名表示の設定
-  def counrty 
+  def counrty
     Carmen::Country.coded(country_code)
   end
-  
-  
+
+
    #退会ユーザはログインできないようにする,false であればtrueを返す
   def active_for_authentication?
     super && (self.is_deleted == false)
   end
-  
+
   # フォロー機能
   # フォローしたときの処理
   def follow(user_id)
@@ -70,12 +70,13 @@ class User < ApplicationRecord
   # 既にフォローしているか判定
   # 　include?(引数)メソッド： 対象の文字列に引数で指定した文字列が含まれているか検索して真偽値を返す
   def following?(user)
-    following.include?(user)
+    followings.include?(user)
   end
-  
+
   # フォローの通知をするメソッドを作成
   def create_notification_follow!(current_user)
-    temp = Notification.where(["visiter_id = ? and visited_id = ? and action = ? ",current_user.id, id, 'follow'])
+    # temp = Notification.where(["visiter_id = ? and visited_id = ? and action = ? ",　current_user.id, id, 'follow'])
+    temp = Notification.where(visiter_id: current_user.id, visited_id: id, action: 'follow')
     if temp.blank?
       notification = current_user.active_notifications.new(
         visited_id: id,
@@ -85,19 +86,21 @@ class User < ApplicationRecord
       notification.save if notification.valid?
     end
   end
-      
 
-  
+
+
   # ゲストログイン機能
   def self.guest
     find_or_create_by!(name: 'guestuser', email: 'guest@example.com') do |user|
+      # 入っていないデータだけ下に記述する
       user.password = SecureRandom.urlsafe_base64
-      user.name = 'guestuser'
+      user.introduction = 'よろしくお願いいたします'
+      user.country_code = '日本'
     end
   end
-  
-  
-  
+
+
+
 
 end
 

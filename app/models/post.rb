@@ -35,7 +35,7 @@ class Post < ApplicationRecord
   #DBへのコミット直前に実施する
   after_create do
     post = Post.find_by(id: self.id)
-    tags = self.content.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
+    tags = self.explaination.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
     post.tags = []
     tags.uniq.map do |tag|
        #ハッシュタグは先頭の'#'を外した上で保存
@@ -47,7 +47,7 @@ class Post < ApplicationRecord
   before_update do
     post = Post.find_by(id: self.id)
     post.tags.clear
-    tags = self.content.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
+    tags = self.explaination.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
     tags.uniq.map do |tag|
       tag = Tag.find_or_create_by(name: tag.downcase.delete('#'))
       post.tags << tag
@@ -57,7 +57,7 @@ class Post < ApplicationRecord
   # コメントを通知するメソッドを作成する
   def create_notification_comment!(current_user, comment_id)
     # 自分以外にコメントしている人をすべて取得し、全員に通知を送る
-    temp_ids = Comment.select(:user_id).where(post_id: id).where.not(user_id: current_user.id).distinct
+    temp_ids = PostComment.select(:user_id).where(post_id: id).where.not(user_id: current_user.id).distinct
     temp_ids.each do |temp_id|
       save_notification_comment!(current_user, comment_id, temp_id['user_id'])
 

@@ -1,8 +1,10 @@
 <div class ="container mt-3">
-<% if user_signed_in? %>
-  <%= form_with url: search_path, method: :get, local: true do |f| %>
-    <%= f.text_field :keyword, placeholder: 'キーワードを入力' %>
-    <%= f.submit '検索',class: "btn btn01" %>
+  <% if user_signed_in? %>
+    <%= form_with url: search_path, method: :get, local: true do |f| %>
+      <%= f.text_field :keyword, placeholder: 'キーワード検索', class: "border border-white" %>
+      <%= f.submit '検索',class: "search-button" %>
+    <% end %>
   <% end %>
-<% end %>
 </div>
+
+

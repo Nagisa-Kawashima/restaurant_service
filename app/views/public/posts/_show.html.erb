@@ -2,7 +2,7 @@
   <h4><i class="fas fa-mug-hot"></i> 投稿詳細</h4>
   <div class="post_show">
     <p><%= link_to user_path(post.user),class: "text-dark" do %>
-       <%= image_tag post.user.get_image, class: "user_post" %>
+       <%= image_tag post.user.get_profile_image, class: "user_post" %>
        <%= post.user.name %>
        <% end %>
     &ensp;<%= l post.created_at %>
@@ -13,7 +13,7 @@
 <div class="col-lg-6 mt-4">
   <div class="post_show">
     <h5><strong><%= post.title %></strong></h5>
-    <p><%= render_with_tags(simple_format(post.expl))%></p>
+    <p><%= render_with_tags(simple_format(post.explaination))%></p>
     <p class="like-btn"><%= render 'public/likes/btn', post: post %></p>
   </div>
 </div>

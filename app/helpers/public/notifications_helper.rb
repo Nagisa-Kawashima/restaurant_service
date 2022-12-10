@@ -14,7 +14,7 @@ module Public::NotificationsHelper
       tag.a(notification.visiter.name, href: user_path(@visiter)) + 'が' + tag.a('あなたの投稿', href: post_path(notification.post_id)) + 'にいいねしました'
     when 'comment' then
       #コメントの内容と投稿のタイトルを取得　  
-      @comment = Comment.find_by(id: @visiter_comment)
+      @comment = PostComment.find_by(id: @visiter_comment)
       @post_title = @comment.post.title
       tag.a(@visiter.name, href: user_path(@visiter)) + 'が' + tag.a("#{@post_title}", href: post_path(notification.post_id)) + 'にコメントしました'
     end
