@@ -19,3 +19,83 @@
   height: 300px;
   object-fit: cover; /*ボックスが画像で埋まるようにリサイズ*/
 }
+
+
+/*チャット一覧ページ*/
+.user_image{
+  width: 100%;
+  max-width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+/*チャットページ*/
+/*自分のメッセージ（右側）*/
+.my-message {
+ text-align: right;
+}
+
+
+/*// メッセージの装飾*/
+.my-message p {
+  display: inline-block;
+  position: relative;
+  margin: 0 10px 0 0;
+  padding: 8px;
+  border-radius: 12px;
+  background: #ADFF2F;
+  max-width: 250px; /*吹き出しの最大横幅,超えると折り返す*/
+  font-size: 14px;
+  text-align: left;
+}
+
+/*// 吹き出しに使う三角のパーツ*/
+/*// afterでメッセージに装飾をつける*/
+.my-message p:after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: -19px;
+  border: 8px solid transparent; /*content: "";にボーダーをつけtransparentで透明にする*/
+  border-left: 18px solid #ADFF2F; /*上記の左側のみカラーをつける*/
+  -webkit-transform: rotate(-35deg);
+  transform: rotate(-35deg);
+}
+
+
+/*// 相手のメッセージ表示欄*/
+/*// アイコン*/
+.chat-user-image {
+  float: left;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+/*// 相手のメッセージの装飾*/
+.user-message {
+  display: inline-block;
+  position: relative;
+  margin: 15px 0 0 10px;
+  padding: 10px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #DCDCDC;
+}
+
+/*// 吹き出しに使う三角のパーツ*/
+/*// afterでメッセージに装飾をつける*/
+.user-message:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  left: -19px; /*マイナス値にすることで左側に寄せている*/
+  border: 8px solid transparent;
+  border-right: 18px solid #DCDCDC;
+  -webkit-transform: rotate(35deg);
+  transform: rotate(35deg);
+}
+.user-message p {
+  margin: 0;
+  font-size: 14px;
+}

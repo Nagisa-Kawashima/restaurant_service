@@ -1,5 +1,6 @@
 class Public::PostsController < ApplicationController
   # before_action :authenticate_user!
+  # before_action :ensure_current_user, only: [:edit, :update,:destroy]
 
   def new
     @post = Post.new
@@ -26,15 +27,19 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = PostComment.new
     # @tags = @post.tags
-    @user_post = @post.user
+    @user = @post.user
 
   end
 
   def edit
     @post = Post.find(params[:id])
-    if current_user = @post.user
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if current_user == @post.user
       if @post.update(post_params)
-        redirect_to post_path(@post), notice: ((@post.is_draft == "draft") ? "マイページの下書き投稿に保存しました。" : "更新しました。")
+          redirect_to post_path(@post),notice: ((@post.is_draft == "draft") ? "マイページの下書き投稿に保存しました。" : "更新しました。")
       else
         redirect_to edit_post_path(@post), alert: "編集内容をご確認ください。"
       end
@@ -42,6 +47,8 @@ class Public::PostsController < ApplicationController
       redirect_to posts_path, alert: "本人以外更新できません。"
     end
   end
+
+
 
   def destroy
     @post = Post.find(params[:id])
@@ -67,14 +74,7 @@ class Public::PostsController < ApplicationController
   end
 
 
-  def post_choice
-    if (params[:id]).present?
-      @post = Post.find(params[:id])
-    else
-      @post = Post.find(params[:post_id])
-    end
-  end
-
+ 
 
   private
 

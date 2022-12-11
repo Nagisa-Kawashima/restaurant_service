@@ -21,12 +21,12 @@ class Public::ChatsController < ApplicationController
       UserRoom.create(user_id: current_user.id, room_id: @room.id)
       UserRoom.create(user_id: @user.id, room_id: @room.id)
     end
-    @chats = @room.chats.order(created_at: "DESC")
-    @chat = Chats.new(room_id: @room.id)
+    @chats = @room.chats.order(created_at: "ASC")
+    @chat = Chat.new(room_id: @room.id)
   end
 
   def create
-    chat = current_user.chats.new(chats_params)
+    chat = current_user.chats.new(chat_params)
     if chat.save
       redirect_to request.referer, notice: "メッセージを送信しました。"
     else

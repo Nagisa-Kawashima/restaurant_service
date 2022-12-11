@@ -21,7 +21,7 @@
         </thead>
         <tbody>
           <tr class="text-center">
-            <td> <%= image_tag user.get_profile_image,class: "plofile_index"%></td>
+            <td> <%= image_tag user.get_profile_image,class: "plofile_index", size: '200x200'%></td>
             <td><%= user.name %></td>
             <td><%= user.followings.count %></td>
             <td><%= user.followers.count %></td>

@@ -58,12 +58,13 @@
       <p class="top_font">new post</p>
       <div class="newpost">
         <% @new_posts.each do |new_posts| %>
-        <div class="newpost_flame">
-          <%= link_to posts_path do %>
-          <%= image_tag new_posts.get_image,class: "image_new" %>
-　　　　　<p><strong><%= new_posts.title %></strong></p>
-          <% end %>
-        </div>
+          <div class="newpost_flame d-inline-block me-4">
+            <%= link_to posts_path do %>
+              <%= image_tag new_posts.get_image,class: "image_new ", size:'200x200' %>
+            <% end %>
+             <p><strong><%= new_posts.title %></strong></p>
+          </div>
+
         <% end %>
       </div>
     </div>

@@ -5,7 +5,7 @@ class Public::NotificationsController < ApplicationController
     @notifications = current_user.passive_notifications.page(params[:page]).per(20)
     #通知画面を開くとcheckedをtrueにして通知確認済にする
     @notifications.where(checked: false).each do |notification|
-      notification.update_attributes(checked: true)
+      notification.update(checked: true)
     end
   end
   # 未確認の通知レコードを一括削除する

@@ -4,7 +4,7 @@ module Public::NotificationsHelper
     @visiter = notification.visiter
     #コメントの内容を通知に表示する
     @comment = nil
-    @visiter_comment = notification.comment_id
+    @visiter_comment = notification.post_comment_id
     # notification.actionがfollowかlikeかcommentかで処理を変える
     case notification.action
     when 'follow'

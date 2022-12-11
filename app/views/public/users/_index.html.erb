@@ -4,10 +4,10 @@
     <% posts.each do |post| %>
     <div class="post">
       <%= link_to post_path(post.id),data: {"turbolinks" => false} do %>
-       <%= image_tag post.get_image,class: "image_index"%>
+       <%= image_tag post.get_image,class: "image_index", size: '200x200'%>
       <% end %>
       <p><%= post.title %></p>
-      <p><i class="far fa-comment-alt"></i><%= link_to " #{post.comments.count} ", post_path(post.id) %></p>
+      <p><i class="far fa-comment-alt"></i><%= link_to " #{post.post_comments.count} ", post_path(post.id) %></p>
     </div>
     <% end %>
   </div>

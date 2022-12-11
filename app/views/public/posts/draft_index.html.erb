@@ -10,7 +10,7 @@
          <%= image_tag post.get_image,class: "image_index"%>
          <% end %>
          <p><strong><%= post.title %></strong></p>
-         <p><i class="far fa-comment-alt"></i><%= link_to " #{post.comments.count} ", post_path(post.id) %></p>
+         <p><i class="far fa-comment-alt"></i><%= link_to " #{post.post_comments.count} ", post_path(post.id) %></p>
         </div>
       <% end %>
       <% else %>

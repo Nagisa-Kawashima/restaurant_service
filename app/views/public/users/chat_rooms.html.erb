@@ -12,7 +12,7 @@
             <tr>
               <td>
               <%= link_to user_path(user) do %>
-                <%= image_tag user.get_profile_image, class: 'user_image' %>
+                <%= image_tag user.get_profile_image, class: 'user_image', size: '200x200' %>
               <% end %>
               <p><i class="fas fa-user-circle"></i> <%= user.name %></p>
               </td>
