@@ -16,7 +16,7 @@
         </div>
         <div class="col-xs-3 mb-3">
           <%= link_to '退会しない', edit_user_path(current_user), data: {"turbolinks" => false}, class: "btn btn-outline-success" %>
-          <%= link_to '退会する', withdrawal_path, data: {confirm: "本当に退会しますか？"},method: :patch, class: "ml-5 btn btn-outline-danger px-4" %>
+          <%= link_to '退会する', user_withdraw_path, data: {confirm: "本当に退会しますか？"},method: :patch, class: "ml-5 btn btn-outline-danger px-4" %>
         </div>
       </div>
     </div>

@@ -7,14 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 if Rails.env.development?
   Admin.create!(email: "admin@test.com", password: "password")
-
+  
   (1..2).each do |n|
     User.create!(email: "test#{n}@testt.com", password: "password", name: "test#{n}", introduction: "test", country_code: "日本", profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user1.png"), filename: "sample-user1.png"),)
     Post.create!(title: "title", image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-post1.jpg"),filename: "sample-post1.jpg"), explaination:"今日は勉強をしました" , user_id: n, is_draft: 1)
     Tag.create!(name: "タグ名")
     PostTag.create!(tag_id: n, post_id: n)
   end
-
 
     # フォローフォロワーの作成
   Relationship.create!(

@@ -1,9 +1,9 @@
-<div class="post_list">
+<div class="post_list col-12  mb-3  d-flex flex-wrap d-grid gap-5 justify-content-center">
   <% posts.each do |post| %>
    <% if post.user.is_deleted == false %>
-     <div class="post">
+     <div class="post shadow-lg text-center">
       <%= link_to post_path(post.id),data: {"turbolinks" => false} do %>
-       <%= image_tag post.get_image,class: "image_index", size:'200x200'%>
+        <%= image_tag post.get_image,class: "image_index", size:'300x300'%>
       <% end %>
       <p><strong><%= post.title %></strong></p>
       <p><i class="far fa-comment-alt"></i><%= link_to " #{post.post_comments.count} ", post_path(post.id) %>

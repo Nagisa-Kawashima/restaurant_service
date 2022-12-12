@@ -1,4 +1,4 @@
-<div class ="container mt-3">
+<div class ="container ">
   <% if user_signed_in? %>
     <%= form_with url: search_path, method: :get, local: true do |f| %>
       <%= f.text_field :keyword, placeholder: 'キーワード検索', class: "border border-white" %>

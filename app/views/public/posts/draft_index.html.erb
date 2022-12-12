@@ -1,13 +1,13 @@
 <div class ="container" >
   <div class="row">
     <div class="col-12">
-      <h5 class="text-center"><i class="fas fa-lock"></i> 下書き投稿(<%= current_user.posts.draft.count %>件)</h5>
-      <div class="post_list">
+      <h5 class="text-center col-md-5 top1 mx-auto my-4"><i class="fas fa-lock"></i> 下書き投稿(<%= current_user.posts.draft.count %>件)</h5>
+      <div class="post_list mb-3  d-flex flex-wrap d-grid gap-5 justify-content-center">
       <% if @posts.exists? %>
       <% @posts.each do |post| %>
-        <div class="post">
+        <div class="post shadow-lg text-center">
          <%= link_to post_path(post),data: {"turbolinks" => false}  do %>
-         <%= image_tag post.get_image,class: "image_index"%>
+         <%= image_tag post.get_image,class: "image_index" , size: '200x200'%>
          <% end %>
          <p><strong><%= post.title %></strong></p>
          <p><i class="far fa-comment-alt"></i><%= link_to " #{post.post_comments.count} ", post_path(post.id) %></p>
@@ -16,6 +16,9 @@
       <% else %>
         <p>下書き投稿はありません</p>
       <% end %>
+      </div>
+      <div class="pagination">
+        <%= paginate @posts %>
       </div>
     </div>
   </div>

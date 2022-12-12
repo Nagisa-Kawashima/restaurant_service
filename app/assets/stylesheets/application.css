@@ -13,12 +13,206 @@
  *= require_tree .
  *= require_self
  */
+.main {
+  min-height: 1000px;/*高さの最小値を指定*/
+  background-color: #FFFAF0;
+}
 
+.nature {
+  background-image: url(nature.jpg);
+  background-size:  cover;
+}
 .new-img {
   width: 400px;
   height: 300px;
   object-fit: cover; /*ボックスが画像で埋まるようにリサイズ*/
 }
+
+li {
+  white-space: nowrap; /*自動的な折り返しを禁止する*/
+}
+
+th {
+  white-space: nowrap; /*自動的な折り返しを禁止する*/
+}
+
+td {
+  white-space: nowrap;
+}
+
+
+.top1 {
+  position: relative;
+  padding: 0.25em 1em;
+  border: solid 2px black;
+  border-radius: 3px 0 3px 0;
+  background-color: #FFFFFF;
+}
+
+.top1:before, .top1:after {
+  content: '';
+  position: absolute;
+  width:10px;
+  height: 10px;
+  border: solid 1px black;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+}
+
+.top1:after {
+  top:-12px;
+  left:-12px;
+}
+.top1:before {
+  bottom:-12px;
+  right:-12px;
+}
+.top2 {
+  position: relative;
+  padding: 0.25em 1em;
+  border: solid 2px black;
+  border-radius: 3px 0 3px 0;
+  background-color: #FFFFFF;
+}
+
+.top2:before, .top2:after {
+  content: '';
+  position: absolute;
+  width:10px;
+  height: 10px;
+  border: solid 1px black;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+}
+
+.top2:after {
+  top:-12px;
+  left:-12px;
+}
+.top2:before {
+  bottom:-12px;
+  right:-12px;
+}
+.top3 {
+  position: relative;
+  padding: 0.25em 1em;
+  border: solid 2px black;
+  border-radius: 3px 0 3px 0;
+  background-color: #FFFFFF;
+}
+
+.top3:before, .top3:after {
+  content: '';
+  position: absolute;
+  width:10px;
+  height: 10px;
+  border: solid 1px black;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+}
+
+.top3:after {
+  top:-12px;
+  left:-12px;
+}
+.top3:before {
+  bottom:-12px;
+  right:-12px;
+}
+
+/*.top_font {*/
+/*  color: #745030;*/
+/*  font-family:cursive;*/
+/*  font-size: 40px;*/
+/*  text-shadow: 3px 3px 5px rgba(14, 51, 29, 0.5)*/
+/*}*/
+
+
+.top_font {
+  position: relative;
+  /*padding: 1rem 2rem;*/
+  border: 4px solid #000;
+  background-color: #FFFFFF;
+}
+
+.top_font:before {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  content: '';
+  border: 2px solid #000;
+}
+
+.top_img {
+  height: 30%;
+}
+
+.about {
+  background-image: url(about_image.jpg);
+  background-size:  cover;
+  background-position: center;
+  position: relative;
+  height: 500px;
+
+}
+.about_p {
+  position:absolute;
+  top:30%; left:25%;
+  background-color:rgba(0,0,0,0.4);
+  color:#FFF;
+  height: 50%;
+}
+
+#profile {
+    background-color: rgb(253, 246, 246);
+    text-align: center;
+    margin-top: 30px;
+    padding: 10px;
+}
+
+.profile-group {
+    display: flex;
+    padding: 30px 0 90px;
+}
+.my-face {
+    width: 200px;
+    height: 200px;
+    background-image: url(myimage.jpg);
+    background-size:  cover;
+    background-position: center;
+    border-radius: 50%;
+}
+
+.description-title {
+    font-size: 20px;
+    margin: 20px 0 5px 0;
+}
+.description-title:first-child {
+    margin-top: 0;
+}
+.description-text {
+    font-size: 16px;
+}
+
+#contact {
+    background-color: rgba(246, 240, 240, 0.923);
+    text-align: center;
+    margin-top: 30px;
+    padding: 30px;
+}
+
+/*通知一覧*/
+.notification-index {
+  padding: 0.2em 0.5em;
+  margin: 2em 0;
+  background: #e5d2c5;
+  box-shadow: 0px 0px 0px 10px #e5d2c5;
+  border: dashed 2px white;
+}
+
+
 
 
 /*チャット一覧ページ*/
@@ -98,4 +292,29 @@
 .user-message p {
   margin: 0;
   font-size: 14px;
+}
+
+/*ページネーション*/
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0px;
+
+}
+.pagination span {
+  margin-right: 30px;
+
+}
+.pagination span a {
+  display: inline-block;
+  background-color: #d8bfd8;
+  border-radius: 10%;
+  padding: 10px 30px;
+}
+span.page.current {
+  background-color: pink;
+  display: inline-block;
+  padding: 10px 30px;
+  border-radius: 10%;
 }

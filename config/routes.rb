@@ -41,11 +41,14 @@ Rails.application.routes.draw do
       end
     end
 
-     # ユーザの退会確認ページ
-    get "users/unsubscribe" => "users#unsubscribe", as:"unsubscribe"
+    # ユーザの退会確認ページ
+    get "user/unsubscribe" => "users#unsubscribe"
     #ユーザ退会処理
-    patch "users/withdraw" => "users#withdraw", as:"withdrawal"
-
+    patch "user/withdraw" => "users#withdraw"
+   
+   
+   
+   
     # 投稿機能
     resources :posts do
       #コメント機能

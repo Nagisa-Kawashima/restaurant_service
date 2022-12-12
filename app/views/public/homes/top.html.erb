@@ -1,32 +1,30 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div id="carouselExampleCaptions" class="carousel slide mt-4" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="10000">
-            <%= image_tag 'topimage1.jpg', class: 'd-block w-100' %>
-            <div class="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>Some representative placeholder content for the first slide.</p>
+        <div class="carousel-inner border border-5 nature">
+          <div class="carousel-item active text-center" data-bs-interval="10000">
+            <%= image_tag 'topimage1.jpg', class: 'top_img h-50 d-inline-block' %>
+            <div class="carousel-caption d-none d-md-block col-md-4 mx-auto" style="opacity: 0.8;">
+              <h5 class="rounded-3 py-3" style="background-color:rgba(0,0,0,0.8); color:#FFF;">ようこそResutaurant_serviceへ！</h5>
+              <p class="rounded-3 py-3" style="background-color:rgba(0,0,0,0.8); color:#FFF;">あなたの日々の仕事の体験を共有しましょう！</p>
             </div>
           </div>
-          <div class="carousel-item" data-bs-interval="10000">
-            <%= image_tag 'topimage2.jpg', class: 'd-block w-100' %>
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>Some representative placeholder content for the second slide.</p>
+          <div class="carousel-item text-center" data-bs-interval="10000">
+            <%= image_tag 'topimage2.jpg', class: 'top_img  h-50 d-inline-block' %>
+            <div class="carousel-caption d-none d-md-block col-md-4 mx-auto">
+              <p class="rounded-3 py-2 px-3" style="background-color:rgba(0,0,0,0.8); color:#FFF;">Resutaurant_serviceではあなたの勉強の記録や<br>あなたの悩みも共有することが出来ます！</p>
             </div>
           </div>
-          <div class="carousel-item" data-bs-interval="10000">
-            <%= image_tag 'topimage3.png', class: 'd-block w-100' %>
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>Some representative placeholder content for the third slide.</p>
+          <div class="carousel-item text-center" data-bs-interval="10000">
+            <%= image_tag 'topimage3.jpg', class: 'top_img  h-50 d-inline-block' %>
+            <div class="carousel-caption d-none d-md-block col-md-4 mx-auto">
+              <p class="rounded-3 py-2" style="background-color:rgba(0,0,0,0.8); color:#FFF;">同じ志を持つユーザーと仲間になりましょう！</p>
             </div>
           </div>
         </div>
@@ -40,33 +38,33 @@
         </button>
       </div>
     </div>
-      <div class="top_list">
-      <div class="top1">
-        <p><b>初めてご利用の方</b><br>新規登録お願いします</p>
-        <%= link_to '新規登録', new_user_registration_path, class: "btn btn-outline-success" %>
-      </div>
-      <div class="top2">
-        <p><b>既に登録済みの方</b><br>ログインしてください</p>
-        <%= link_to 'ログイン', new_user_session_path, class: "btn btn-outline-primary" %>
-      </div>
-      <div class="top3">
-        <p><b>サイトを覗いてみる</b><br>ゲストユーザーとして<br>ご利用いただけます</p>
-        <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "btn btn-outline-info" %>
-      </div>
+      <div class="top_list col-md-12 d-inline-flex justify-content-around my-5 text-center">
+        <div class="top1 col-md-3 py-2">
+          <p><b>初めてご利用の方</b><br>新規登録お願いします</p>
+          <%= link_to '新規登録', new_user_registration_path, class: "btn btn-outline-success" %>
+        </div>
+        <div class="top2 col-md-3 py-2">
+          <p><b>既に登録済みの方</b><br>ログインしてください</p>
+          <%= link_to 'ログイン', new_user_session_path, class: "btn btn-outline-primary" %>
+        </div>
+        <div class="top3 col-md-3 py-2">
+          <p><b>サイトを覗いてみる</b><br>ゲストユーザーとして<br>ご利用いただけます</p>
+          <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "btn btn-outline-info" %>
+        </div>
       </div>
       <!--新着投稿欄-->
-      <p class="top_font">new post</p>
-      <div class="newpost">
+      <div class="top_font col-md-5 text-center fs-1 fst-italic my-5 mx-auto">latest Posts</div>
+      <div class="newpost mb-5 mx-auto text-center">
         <% @new_posts.each do |new_posts| %>
-          <div class="newpost_flame d-inline-block me-4">
+          <div class="newpost_flame d-inline-block me-5">
             <%= link_to posts_path do %>
-              <%= image_tag new_posts.get_image,class: "image_new ", size:'200x200' %>
+              <%= image_tag new_posts.get_image,class: "image_new shadow-lg", size:'200x200' %>
             <% end %>
              <p><strong><%= new_posts.title %></strong></p>
           </div>
-
         <% end %>
       </div>
+      <div class="d-grid gap-2 col-6 mx-auto my-5"> <%= link_to '今すぐ始めよう', new_user_registration_path, class: "btn btn-outline-success" %></div>
     </div>
   </div>
 </div>
