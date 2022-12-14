@@ -17,7 +17,7 @@
     </div>
   </div>
     <% if comment.user == current_user %>
-      <%= link_to "削除", post_post_comment_path(comment.post, comment), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"}, class: 'btn btn-primary' %>
+      <%= link_to "削除", post_post_comment_path(comment.post, comment), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"}, class: 'btn btn-danger' %>
       <% end %><br>
     <% end %>
 <% else %>

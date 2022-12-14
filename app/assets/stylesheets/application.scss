@@ -19,7 +19,7 @@
 }
 
 .nature {
-  background-image: url(nature.jpg);
+  background-image: image-url("nature.jpg");
   background-size:  cover;
 }
 .new-img {
@@ -143,7 +143,7 @@ td {
 }
 
 .about {
-  background-image: url(about_image.jpg);
+  background-image: image-url("about_image.jpg");
   background-size:  cover;
   background-position: center;
   position: relative;
@@ -172,7 +172,7 @@ td {
 .my-face {
     width: 200px;
     height: 200px;
-    background-image: url(myimage.jpg);
+    background-image: image-url("myimage.jpg");
     background-size:  cover;
     background-position: center;
     border-radius: 50%;
