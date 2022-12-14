@@ -1,22 +1,27 @@
 <% chats.each do |chat| %>
   <% if chat.user_id == current_user.id %>
     <!--自分のメッセージ（右側）-->
-    <div class="my-message">
-      <p><%= chat.message %></p>
-      <div class="small">
+    <div class="my-message my-2">
+      <span>
+        <% if chat.user == current_user %>
+          <%= link_to '削除', chat, method: :delete, data: { confirm: '本当に削除してもよろしいですか？'}, class: 'btn btn-danger' %>
+        <% end %>
+      </span>
+      <p class="ms-2"><%= chat.message %></p>
+      <div>
         <%= l chat.created_at %>
       </div>
     </div>
   <% else %>
     <!--相手のメッセージ（左側）-->
-    <div class="mt-1">
+    <div>
       <%= link_to user_path(user) do %>
         <%= image_tag user.get_profile_image, class: "chat-user-image" %>
       <% end %>
       <div class="user-message">
         <p><%= chat.message %></p>
       </div>
-      <div class=" small">
+      <div>
         <%= l chat.created_at %>
       </div>
     </div>

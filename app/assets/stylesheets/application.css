@@ -14,7 +14,7 @@
  *= require_self
  */
 .main {
-  min-height: 1000px;/*高さの最小値を指定*/
+  min-height: 1200px;/*高さの最小値を指定*/
   background-color: #FFFAF0;
 }
 
@@ -120,13 +120,6 @@ td {
   right:-12px;
 }
 
-/*.top_font {*/
-/*  color: #745030;*/
-/*  font-family:cursive;*/
-/*  font-size: 40px;*/
-/*  text-shadow: 3px 3px 5px rgba(14, 51, 29, 0.5)*/
-/*}*/
-
 
 .top_font {
   position: relative;
@@ -201,6 +194,14 @@ td {
     text-align: center;
     margin-top: 30px;
     padding: 30px;
+}
+
+.comment-user-image {
+  border-radius: 50%;
+
+}
+.link {
+  text-decoration: none;
 }
 
 /*通知一覧*/

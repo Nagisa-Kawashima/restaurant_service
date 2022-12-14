@@ -4,6 +4,8 @@ class Public::PostsController < ApplicationController
 
   def new
     @post = Post.new
+    # 末尾から5件のレコードを取得
+    @tags = Tag.last(5)
   end
 
   def create
@@ -25,14 +27,16 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    # コメントのページネーション用
+    @comments = @post.post_comments.page(params[:page]).per(5)
     @comment = PostComment.new
-    # @tags = @post.tags
     @user = @post.user
 
   end
 
   def edit
     @post = Post.find(params[:id])
+    @tags = Tag.last(5)
   end
 
   def update
@@ -74,7 +78,7 @@ class Public::PostsController < ApplicationController
   end
 
 
- 
+
 
   private
 

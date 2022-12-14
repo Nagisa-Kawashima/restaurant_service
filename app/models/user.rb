@@ -95,7 +95,7 @@ class User < ApplicationRecord
       # 入っていないデータだけ下に記述する
       user.password = SecureRandom.urlsafe_base64
       user.introduction = 'よろしくお願いいたします'
-      user.country_code = '日本'
+      user.country_code = 'JP'
     end
   end
 

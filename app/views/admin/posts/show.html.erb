@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-lg-6 my-4">
+      <h4>投稿詳細</h4>
+      <div class="post_show">
+        <p class="small">投稿日時<%= l @post.created_at %></p>
+        <p><%= image_tag @post.get_image,class: "post_image"%></p>
+        <p>タイトル<br><%= @post.title %></p>
+        <p>本文<br><%= render_with_tags(@post.explaination) %></p>
+        <div class="d-flex">
+          <p><%= link_to '削除', admin_user_post_path(@post.user, @post), method: :delete, data: {confirm: "投稿を削除します。よろしいですか？"},class: 'btn btn-danger px-5'%></p>
+          <p class="ms-3"><%= link_to '投稿一覧ページに戻る', admin_user_posts_path, class: 'btn btn-success '%></p>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row mb-3 d-flex justify-content-center">
-    <div class="col-lg-8">
-      <h5 class="text-center mt-5"><%= image_tag @user.get_profile_image, class: "user_image"%><br /><%= @user.name %><br /> <%= @user.name %>さんとのチャットルーム <i class="far fa-comment"></i></h5>
+    <div class="col-8">
+      <h5 class="text-center mt-5"><%= image_tag @user.get_profile_image, class: "user_image"%>&ensp;<%= @user.name %>さんとのチャットルーム <i class="far fa-comment"></i></h5>
       <div>
         <%= form_with model: @chat do |f| %>
           <%= f.text_area :message, class: "form-control" %>
@@ -13,6 +13,9 @@
       <% if @chats.present? %>
         <div class="message">
           <%= render "public/chats/chat", chats: @chats, user: @user %>
+          <div class="pagination">
+            <%= paginate @chats %>
+          </div>
         </div>
       <% else %>
         <p class="text-center"><%= @user.name %>さんと、チャットをはじめよう！</p>

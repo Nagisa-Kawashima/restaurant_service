@@ -1,17 +1,24 @@
 <%= form_with model: post do |f| %>
 <div class="post_form">
-  <i class="fas fa-camera"></i> <%= f.label :image,"画像を選択する" %><br>
-  <%= f.file_field :image %>
+  <div class="mb-3"><i class="fas fa-camera"></i> <%= f.label :image,"画像を選択する" %></div>
+  <%= f.file_field :image , class: 'form-control'%>
   <div id="new-image"></div>
-  <i class="fas fa-tag"></i> <%= f.label :title,"タイトル" %><br>
-  <%= f.text_field :title, placeholder: "タイトルを入力" %><br>
-  <i class="far fa-file-alt"></i> <%= f.label :explaination,"本文 (#をつけるとタグになります）" %><br>
-  <%= f.text_area :explaination, placeholder: "本文を入力 \r\n#タグ",:size=>"35x5" %><br>
-  
+  <div class="my-3"><i class="fas fa-tag"></i> <%= f.label :title,"タイトル" %></div>
+  <%= f.text_field :title, placeholder: "タイトルを入力", class: 'form-control' %><br>
+  <div class="mb-3"><i class="far fa-file-alt"></i> <%= f.label :explaination,"本文 (#をつけるとタグになります）" %></div>
+  <div><%= f.text_area :explaination, placeholder: "本文を入力 \r\n#タグ",:size=>"35x5", class: 'form-control' %></div>
+  <div class="bg-white  border py-3 my-5">
+    <p>＃をつけて投稿してみましょう。<br>最近の投稿では以下のようなタグ名で投稿されています。</p>
+    <ul>
+      <% tags.each do |tag| %>
+        <li style="list-style: none;">#<%= tag.name  %></li>
+      <% end%>
+    </ul>
+  </div>
    <!--Post.is_draftで、enumのハッシュ{"published"=>0, "draft"=>1}を取得する。keysで、キー(ハッシュの左側)を配列する。
    mapで、配列の要素に対して1つずつ処理する　|k|に先程のキーを代入　tは日本語化に対応するメソッド。-->
   <div class="form-group">
-    <i class="fas fa-pencil-alt"></i> <%= f.label :is_draft,"下書き/投稿" %><br>
+    <div class="mb-2"><i class="fas fa-pencil-alt"></i> <%= f.label :is_draft,"下書き/投稿" %></div>
     <%= f.select :is_draft, Post.is_drafts.keys.map { |k| [t("enums.post.is_draft.#{k}"),k]}, {}, {class: "custom-select w-25"} %>
     <%= f.submit submit, class: "btn btn-success w-50" %>
   </div>
@@ -21,5 +28,4 @@
 <% end %>
 </div>
 
-  
- 
+

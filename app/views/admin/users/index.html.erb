@@ -7,19 +7,17 @@
           <tr>
             <th>名前</th>
             <th>メールアドレス</th>
-            <th>ユーザーステータス</th>
             <th>国名</th>
+            <th>ユーザーステータス</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
          <% @users.each do |user| %>
           <tr>
-            <td>
-               <%= user.name %>
-            </td>
+            <td><%= user.name %></td>
             <td><%= user.email%></td>
-            <td><%= user.country.name %></td>
+            <td><%= user.counrty.name %></td>
             <td><% if user.is_deleted == false %>
                   <p class="text-success font-weight-bold">有効</p>
                 <% else %>

@@ -5,8 +5,8 @@
       <ul class="list-group">
       <% @comments.each do |comment| %>
         <li class="list-group-item"%>
-        <%= post_comment.comment %>
-        <%= link_to '削除', admin_user_post_comments_path(post_comment.user, comment), method: :delete, data: {confirm: "本当に削除しますか？"},class: 'btn btn-danger' %>
+        <%= comment.comment %>
+        <%= link_to '削除', admin_user_post_comments_path(comment.user, comment), method: :delete, data: {confirm: "本当に削除しますか？"},class: 'btn btn-danger' %>
       <% end %>
         </li>
       </ul>

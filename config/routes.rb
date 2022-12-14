@@ -45,10 +45,10 @@ Rails.application.routes.draw do
     get "user/unsubscribe" => "users#unsubscribe"
     #ユーザ退会処理
     patch "user/withdraw" => "users#withdraw"
-   
-   
-   
-   
+
+
+
+
     # 投稿機能
     resources :posts do
       #コメント機能
@@ -62,7 +62,7 @@ Rails.application.routes.draw do
     # タグ検索結果ページ
     get "post/tag/:name" => "posts#tag"
     # チャット機能
-    resources :chats, only: [:create, :show]
+    resources :chats, only: [:create, :show, :destroy]
      #通知機能
     resources :notifications, only: [:index, :destroy]
   end

@@ -1,21 +1,28 @@
-<div class="col-lg-6">
-  <h4><i class="fas fa-mug-hot"></i> 投稿詳細</h4>
-  <div class="post_show">
-    <p><%= link_to user_path(post.user),class: "text-dark" do %>
-       <%= image_tag post.user.get_profile_image, class: "user_post", size: '200x200'%>
-       <%= post.user.name %>
-       <% end %>
-    &ensp;<%= l post.created_at %>
-    </p>
-    <%= image_tag post.get_image,class: "post_image", size: '200x200'%>
+<div class="border border-4  my-4 p-4">
+  <h4 class="text-center col-5 top1 mx-auto my-4"><i class="fas fa-mug-hot"></i> 投稿詳細</h4>
+  <div class="post_show text-center">
+    <div>
+      <p>
+        <%= link_to user_path(post.user),class: "text-dark link" do %>
+          <%= image_tag post.user.get_profile_image, class: "comment-user-image", size: '100x100'%>
+         &ensp;<%= post.user.name %>&ensp;
+        <% end %>
+        &ensp;<%= l post.created_at %>
+      </p>
+    </div>
+
   </div>
-</div>
-<div class="col-lg-6 mt-4">
-  <div class="post_show">
-    <h5><strong><%= post.title %></strong></h5>
-    <p><%= render_with_tags(simple_format(post.explaination))%></p>
-    <p class="like-btn"><%= render 'public/likes/btn', post: post %></p>
+  <div class="d-flex align-items-start">
+    <div> <%= image_tag post.get_image,class: "post_image my-3  shadow-lg", size: '300x200'%></div>
+    <div class="post_show col-7 text-center mx-auto">
+      <h5>タイトル</h5>
+      <p><%= post.title %></p>
+      <h5>本文</h5>
+      <p><%= render_with_tags(simple_format(post.explaination))%></p>
+      <p class="like-btn"><%= render 'public/likes/btn', post: post %></p>
+    </div>
   </div>
+
   <div class="text-center">
   <% if post.user == current_user %>
     <%= link_to '編集', edit_post_path, class: 'btn btn-primary w-50'%>

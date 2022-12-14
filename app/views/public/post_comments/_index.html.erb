@@ -1,17 +1,25 @@
 <% if post.post_comments.present? %>
   <p>コメント<i class="far fa-comment-alt"></i>　<%= post.post_comments.count %></p>
   <% post.post_comments.each do |comment| %>
-    <%= comment.comment %>
-    <%= comment.created_at.strftime('%Y/%m/%d') %>
-    <%= link_to user_path(comment.user),class: "text-dark" do  %>
-     <%= comment.user.name %>
-     <%= image_tag comment.user.get_profile_image, class: "comment-user-image" , size: '200x200'%>
-    <% end %>
-    <% if comment.user == current_user %>
-      <%= link_to "削除", post_post_comment_path(comment.post, comment), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"} %>
-    <% end %><br>
-  <% end %>
+  <div class="d-flex justify-content-center align-items-center">
+     <div>
+      <%= comment.comment %>&ensp;
+      <%= comment.created_at.strftime('%Y/%m/%d') %>&ensp;
+    </div>
+    <div>
+      <%= link_to user_path(comment.user),class: "link" do  %>
+      <%= comment.user.name %>&ensp;
+      <%= image_tag comment.user.get_profile_image, class: "comment-user-image" , size: '50x50'%>
+      <% end %>
+    </div>
+    <div>
 
+    </div>
+  </div>
+    <% if comment.user == current_user %>
+      <%= link_to "削除", post_post_comment_path(comment.post, comment), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"}, class: 'btn btn-primary' %>
+      <% end %><br>
+    <% end %>
 <% else %>
   <p>コメントはまだありません</p>
 <% end %>

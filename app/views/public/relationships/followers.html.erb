@@ -1,18 +1,18 @@
 <div class="container">
   <div class="row d-flex justify-content-center">
-    <div class="col-lg-8">
+    <div class="col-9">
       <% if @user == current_user  %>
-        <h4 class="mb-4 text-center"><i class="fas fa-user-friends"></i>フォロワー一覧(<%= @users.count %>人)</h4>
+        <h4 class="my-4 text-center col-md-7 top1 mx-auto my-4"><i class="fas fa-user-friends"></i>フォロワー一覧(<%= @users.count %>人)</h4>
       <% else %>
-        <h4 class="mb-4 text-center"><i class="fas fa-user-friends"></i><%= @user.name %> さんのフォロワー (<%= @users.count %>人)</h4>
+        <h4 class="my-4 text-center col-md-7 top1 mx-auto my-4"><i class="fas fa-user-friends"></i><%= @user.name %> さんのフォロワー (<%= @users.count %>人)</h4>
       <% end %>
       <% if @users.exists? %>
       <% @users.each do |user| %>
       <div class="user_index">
-      <table class="table">
+      <table class="table bg-white text-center align-middle">
         <thead>
-          <tr class="text-center">
-            <th style="width: 20%">画像</th>
+          <tr>
+            <th>画像</th>
             <th>名前</th>
             <th>フォロー</th>
             <th>フォロワー</th>
@@ -20,12 +20,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="text-center">
-            <td> <%= image_tag user.get_profile_image,class: "plofile_index", size: '200x200'%></td>
+          <tr>
+            <td> <%= image_tag user.get_profile_image,class: "comment-user-image", size: '130x130'%></td>
             <td><%= user.name %></td>
             <td><%= user.followings.count %></td>
             <td><%= user.followers.count %></td>
-            <td><%= link_to '詳細へ', user %></td>
+            <td><%= link_to '詳細へ', user, class: 'btn btn-primary'  %></td>
           </tr>
         </tbody>
       </table>

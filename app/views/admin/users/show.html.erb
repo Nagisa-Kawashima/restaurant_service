@@ -7,16 +7,26 @@
         <i class="far fa-file-alt"></i> 自己紹介文
         <p><%= @user.introduction %></p>
         <i class="far fa-file-alt"></i> 国名
-        <p><%= @user.country.nam %></p>
+        <p><%= @user.counrty.name %></p>
         <i class="fas fa-envelope"></i> メールアドレス
         <p><%= @user.email %></p>
+        <p>フォロー
+          <%= link_to admin_user_followings_path(@user) do %>
+            <%= @user.followings.count %>
+          <% end %>
+        </p>
+        <p>フォロワー
+          <%= link_to admin_user_followers_path(@user) do %>
+            <%= @user.followers.count %>
+          <% end %>
+        </p>
         <p><%= link_to edit_admin_user_path(@user), class: "btn btn-outline-success w-50" do %>
             編集
            <% end %></p>
         <p><%= link_to admin_user_posts_path(@user), class: "btn btn-outline-dark w-50" do %>
             投稿一覧 (<%= @user.posts.count %>)
           <% end %></p>
-        <p><%= link_to admin_user_comments_path(@user), class: "btn btn-outline-dark w-50" do %>
+        <p><%= link_to admin_user_post_comments_path(@user), class: "btn btn-outline-dark w-50" do %>
             コメント一覧 (<%= @user.post_comments.count %>)
           <% end %></p>
     </div>

@@ -7,7 +7,6 @@ class Public::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.published.page(params[:page]).per(4)
-    @post = Post.find(params[:id])
   end
 
   def index
@@ -31,7 +30,6 @@ class Public::UsersController < ApplicationController
   end
 
   def unsubscribe
-    # @user = User.find(current_user.id)
   end
 
   def withdraw
@@ -59,17 +57,18 @@ class Public::UsersController < ApplicationController
     # いいねに紐づけられた投稿のレコードをすべて持ってくる
     likes = Like.where(user_id: @user.id).pluck(:post_id)
     @like_posts = Post.find(likes)
+
   end
   # チャットルームの一覧ページ用
   def chat_rooms
     user_rooms = current_user.rooms
     follow_users = current_user.followers
-    @chat_room_users = User.joins(:rooms).where(rooms: { id: user_rooms }).where(id: follow_users).where.not(id: current_user)
+    @chat_room_users = User.joins(:rooms).where(rooms: { id: user_rooms }).where(id: follow_users).where.not(id: current_user).page(params[:page]).per(5).reverse_order
   end
 
   private
   def user_params
-    params.reauire(:user).permit(:name, :email, :password, :introduction, :is_deleted, :profile_image, :country_code)
+    params.require(:user).permit(:name, :email, :password, :introduction, :is_deleted, :profile_image, :country_code)
   end
 
   def ensure_correct_user

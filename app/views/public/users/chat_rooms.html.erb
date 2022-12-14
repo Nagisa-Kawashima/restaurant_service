@@ -1,18 +1,18 @@
 <div class="container">
   <div class="row d-flex justify-content-center">
     <div class="col-lg-8 text-center">
-      <h4><i class="fas fa-comments"></i> チャットルーム一覧</h4>
+      <h4 class="text-center col-md-5 top1 mx-auto my-4"><i class="fas fa-comments "></i> チャットルーム一覧</h4>
       <p>相互フォロー時のみチャットができます。</p>
       <!--チャットルームが存在するか確認-->
       <% if @chat_room_users.present? %>
       <% @chat_room_users.each do |user| %>
       <div class="user_chat">
-        <table class="table">
-          <tbody class="text-center">
+        <table class="table bg-white">
+          <tbody>
             <tr>
               <td>
               <%= link_to user_path(user) do %>
-                <%= image_tag user.get_profile_image, class: 'user_image', size: '200x200' %>
+                <%= image_tag user.get_profile_image, class: 'user_image', size: '150x150' %>
               <% end %>
               <p><i class="fas fa-user-circle"></i> <%= user.name %></p>
               </td>
@@ -40,6 +40,9 @@
       <% else %>
       <p class="text-center">現在、チャットルームはありません。</p>
       <% end %>
+    </div>
+    <div class="pagination">
+     <%= paginate @chat_room_users %>
     </div>
   </div>
 </div>
