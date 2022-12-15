@@ -67,59 +67,6 @@ td {
   bottom:-12px;
   right:-12px;
 }
-.top2 {
-  position: relative;
-  padding: 0.25em 1em;
-  border: solid 2px black;
-  border-radius: 3px 0 3px 0;
-  background-color: #FFFFFF;
-}
-
-.top2:before, .top2:after {
-  content: '';
-  position: absolute;
-  width:10px;
-  height: 10px;
-  border: solid 1px black;
-  border-radius: 50%;
-  background-color: #FFFFFF;
-}
-
-.top2:after {
-  top:-12px;
-  left:-12px;
-}
-.top2:before {
-  bottom:-12px;
-  right:-12px;
-}
-.top3 {
-  position: relative;
-  padding: 0.25em 1em;
-  border: solid 2px black;
-  border-radius: 3px 0 3px 0;
-  background-color: #FFFFFF;
-}
-
-.top3:before, .top3:after {
-  content: '';
-  position: absolute;
-  width:10px;
-  height: 10px;
-  border: solid 1px black;
-  border-radius: 50%;
-  background-color: #FFFFFF;
-}
-
-.top3:after {
-  top:-12px;
-  left:-12px;
-}
-.top3:before {
-  bottom:-12px;
-  right:-12px;
-}
-
 
 .top_font {
   position: relative;

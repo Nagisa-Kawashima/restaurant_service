@@ -1,15 +1,16 @@
 <div class="container">
   <div class="row">
     <div class='col-12'>
-      <h4 class="my-4"><i class="fas fa-users"></i>ユーザ一覧</h4>
-      <table class="table table-hover">
+      <h4 class="text-center col-md-4 top1 mx-auto my-4"><i class="fas fa-users"></i>ユーザ一覧</h4>
+      <table class="table table-hover my-5 text-center bg-white">
         <thead class="table-area">
           <tr>
             <th>名前</th>
-            <th>メールアドレス</th>
+            <th width="30%">メールアドレス</th>
             <th>国名</th>
-            <th>ユーザーステータス</th>
-            <th></th>
+            <th width="20%">ユーザーステータス</th>
+            <th width="10%"></th>
+            <th width="10%"></th>
           </tr>
         </thead>
         <tbody>
@@ -24,12 +25,15 @@
                   <p class="text-secondary font-weight-bold">退会</p>
                 <% end %>
             </td>
-            <td><%= link_to '編集', edit_admin_user_path(user) %></td>
+            <td><%= link_to '編集', edit_admin_user_path(user), class: "btn btn-block btn-outline-dark" %></td>
             <td> <%= link_to '詳細', admin_user_path(user), class: "btn btn-block btn-outline-dark" %></td>
           </tr>
           <% end %>
         </tbody>
       </table>
+      <div class="pagination">
+        <%= paginate @users %>
+      </div>
     </div>
   </div>
 </div>
