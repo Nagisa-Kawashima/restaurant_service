@@ -1,7 +1,8 @@
-<div class ="container ">
+<div class ="container pe-0">
   <% if user_signed_in? %>
     <%= form_with url: search_path, method: :get, local: true do |f| %>
       <%= f.text_field :keyword, placeholder: 'キーワード検索', class: "border border-white" %>
+      <%= f.select :range, options_for_select([['ユーザー名と国籍(国コード)で検索', 'User'], ['投稿タイトルと本文とタグ名で検索', 'Post']]) %>
       <%= f.submit '検索',class: "search-button" %>
     <% end %>
   <% end %>

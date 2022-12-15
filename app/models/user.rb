@@ -87,7 +87,14 @@ class User < ApplicationRecord
     end
   end
 
-
+  #検索機能　完全一致で検索する
+  def self.search(search)
+    if search != nil
+      User.where('name LIKE(?) OR country_code LIKE(?)' , "%#{search}%", "%#{search}%")
+    else
+      User.all
+    end
+  end
 
   # ゲストログイン機能
   def self.guest

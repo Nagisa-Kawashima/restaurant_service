@@ -1,8 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-    <h3 class="text-center col-md-5 top1 mx-auto my-4"><span><i class="fas fa-search fa-xs"></i></span>"<%= @keyword %>"の検索結果(<%= @post.count %>件)</h3>
-    <%= render 'public/posts/index', posts: @post %>
+
+    <% if @range == 'User' %>
+    <h3 class="text-center col-md-5 top1 mx-auto my-4"><span><i class="fas fa-search fa-xs"></i></span>"<%= @keyword %>"の検索結果(<%= @users.count %>件)</h3>
+      <%= render 'public/users/user_index', users: @users %>
+    <% else %>
+    <h3 class="text-center col-md-5 top1 mx-auto my-4"><span><i class="fas fa-search fa-xs"></i></span>"<%= @keyword %>"の検索結果(<%= @posts.count %>件)</h3>
+      <%= render 'public/posts/index', posts: @posts %>
+    <% end %>
     </div>
   </div>
 </div>
