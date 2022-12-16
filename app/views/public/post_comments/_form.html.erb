@@ -1,7 +1,7 @@
-<div class="col-md-8  col-sm-9  my-2 mx-auto">
+<div class="col-md-8  col-sm-9  m-4 p-4 mx-auto background shadow">
  <%= form_with(model:[post, comment],local: false) do |f| %>
   <div><%= f.text_area :comment, placeholder: "コメントをここに",class: "comment-form form-control"%></div>
-  <div class="mt-2"><%= f.submit "送信する",class: 'btn btn-success' %></div>
+  <div class="mt-2 col-md-3 ms-auto"><%= f.submit "送信する",class: 'btn btn-success px-4' %></div>
  <% end %>
 </div>
 

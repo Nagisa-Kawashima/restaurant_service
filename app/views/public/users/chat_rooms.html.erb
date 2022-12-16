@@ -7,14 +7,14 @@
       <% if @chat_room_users.present? %>
       <% @chat_room_users.each do |user| %>
       <div class="user_chat">
-        <table class="table bg-white">
+        <table class="table background shadow">
           <tbody>
             <tr>
               <td>
               <%= link_to user_path(user) do %>
-                <%= image_tag user.get_profile_image, class: 'user_image', size: '150x150' %>
+                <%= image_tag user.get_profile_image, class: 'user_image float', size: '150x150' %>
               <% end %>
-              <p><i class="fas fa-user-circle"></i> <%= user.name %></p>
+              <p><%= user.name %></p>
               </td>
               <td>
               <% if user != current_user %>
@@ -26,7 +26,7 @@
               </td>
               <td>
               <% if current_user != user && current_user.following?(user) && user.following?(current_user) %>
-                <%= link_to chat_path(user.id), class: "mt-5 btn btn-outline-secondary" do %>
+                <%= link_to chat_path(user.id), class: "mt-5 btn btn-outline-secondary fwari" do %>
                  <i class="far fa-envelope"></i>チャットを始める
                 <% end %>
               <% end %>

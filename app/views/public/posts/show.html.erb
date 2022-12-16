@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
     <!--投稿詳細-->
-    <div class="col-md-9  col-sm-12 mx-auto"><%= render 'show', post: @post, user_post: @user %></div>
+    <%= render 'show', post: @post, user_post: @user %>
     <div class ="col-md-9  col-sm-12 mx-auto">
         <!--コメント表示-->
-      <div class="comments-area border border-4 my-2 p-4 text-center mx-auto">
+      <div class="comments-area background shadow my-2 p-4 text-center mx-auto">
           <%= render 'public/post_comments/index', post: @post %>
       </div>
         <!--コメントフォーム-->

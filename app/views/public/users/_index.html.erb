@@ -2,12 +2,12 @@
 <h5 class="my-5 text-center top1"><i class="fas fa-pencil-alt"></i> <%= user.name %>さんの投稿(<%= posts.count %>件)</h5>
   <div class="post_list mb-3  d-flex flex-wrap d-grid gap-5 justify-content-center ">
     <% posts.each do |post| %>
-    <div class="post shadow-lg">
+    <div class="post shadow-lg color">
       <%= link_to post_path(post.id),data: {"turbolinks" => false} do %>
        <%= image_tag post.get_image,class: "image_index", size: '200x200'%>
       <% end %>
       <p><%= post.title %></p>
-      <p><i class="far fa-comment-alt"></i><%= link_to " #{post.post_comments.count} ", post_path(post.id) %></p>
+      <p class="float"><i class="far fa-comment-alt"></i><%= link_to " #{post.post_comments.count} ", post_path(post.id) %></p>
     </div>
     <% end %>
   </div>

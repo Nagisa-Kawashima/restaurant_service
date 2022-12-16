@@ -15,6 +15,7 @@
  */
 .main {
   min-height: 1100px;/*高さの最小値を指定*/
+  width: 100%;
   background-color: #FFFAF0;
 }
 
@@ -31,7 +32,7 @@
   transition: transform 0.2s ease 0s;
 }
 .float:hover{
-  transform:translate(0, -10%) ;
+  transform:translate(0, -20%) ;
 }
 
 
@@ -54,6 +55,24 @@
   0%   { -moz-transform:translate(0%, 0%); }
   100% { -moz-transform:translate(0%, -30px); }
 }
+
+/****--------- 伸びる（横） ---------****/
+.width{
+  transition: width 0.2s ease 0s;
+}
+.width:hover{
+  width:60px ;
+}
+
+/****--------- 色変更 ---------****/
+.color{
+  transition: background-color 0.5s ease 0s;
+}
+.color:hover{
+  opacity: 0.8;
+}
+// -------------------------------------------------------
+
 .nature {
   background-image: image-url("nature.jpg");
   background-size:  cover;
@@ -71,17 +90,27 @@ li {
   white-space: nowrap; /*自動的な折り返しを禁止する*/
 }
 
-th {
-  white-space: nowrap; /*自動的な折り返しを禁止する*/
-}
+// th {
+//   white-space: nowrap; /*自動的な折り返しを禁止する*/
+// }
 
-td {
-  white-space: nowrap;
-}
+// td {
+//   white-space: nowrap;
+// }
 a {
   text-decoration: none;
   color: #000000;
 }
+.background {
+  background-image: image-url("white.png");
+  background-size:  cover;
+}
+.logo {
+  background-image: image-url("logo.png");
+  background-size: cover;
+  background-position: center;
+}
+
 
 
 .top1 {
@@ -89,7 +118,7 @@ a {
   padding: 0.25em 1em;
   border: solid 2px black;
   border-radius: 3px 0 3px 0;
-  background-color: #FFFFFF;
+  background-image: image-url("white.png");
 }
 
 .top1:before, .top1:after {
@@ -99,7 +128,7 @@ a {
   height: 10px;
   border: solid 1px black;
   border-radius: 50%;
-  background-color: #FFFFFF;
+  background-image: image-url("white.png");
 }
 
 .top1:after {
@@ -115,7 +144,8 @@ a {
   position: relative;
   /*padding: 1rem 2rem;*/
   border: 4px solid #000;
-  background-color: #FFFFFF;
+  background-image: image-url("about_image.jpg");
+
 }
 
 .top_font:before {
@@ -142,14 +172,14 @@ a {
 }
 .about_p {
   position:absolute;
-  top:30%; left:25%;
+  top:15%; left:25%;
   background-color:rgba(0,0,0,0.4);
   color:#FFF;
   height: 50%;
 }
 
 #profile {
-    background-color: rgb(253, 246, 246);
+    background-color: white;
     text-align: center;
     margin-top: 30px;
     padding: 10px;
@@ -180,7 +210,7 @@ a {
 }
 
 #contact {
-    background-color: rgba(246, 240, 240, 0.923);
+    background-color: rgba(186, 172, 186, 0.5);
     text-align: center;
     margin: 30px 0px;
     padding: 30px;
@@ -204,6 +234,19 @@ a {
 }
 
 
+.post_show a {
+  background-color: gray;
+  color: white;
+  display: inline-block;
+  padding:  5px 15px;
+  margin: 20px 10px 0px 0px;
+  border-radius: 10%;
+  transition: transform 0.2s ease 0s;
+}
+
+.post_show a:hover{
+  transform:translate(0, -20%) ;
+}
 
 
 /*チャット一覧ページ*/
@@ -264,7 +307,7 @@ a {
   padding: 10px;
   max-width: 250px;
   border-radius: 12px;
-  background: #DCDCDC;
+  background: white;
 }
 
 /*// 吹き出しに使う三角のパーツ*/
@@ -276,7 +319,7 @@ a {
   top: 3px;
   left: -19px; /*マイナス値にすることで左側に寄せている*/
   border: 8px solid transparent;
-  border-right: 18px solid #DCDCDC;
+  border-right: 18px solid white;
   -webkit-transform: rotate(35deg);
   transform: rotate(35deg);
 }
@@ -309,3 +352,4 @@ span.page.current {
   padding: 10px 30px;
   border-radius: 10%;
 }
+

@@ -1,18 +1,18 @@
 <div class ="container">
   <div class="row">
-    <div class="col-12 text-center">
-      <h4 class="text-center  col-md-5 top1 mx-auto my-4"><i class="fas fa-bell"></i> 通知</h4>
+    <div class="col-10 text-center mx-auto">
+      <h4 class="col-md-5 top1 mx-auto my-4"><i class="fas fa-bell"></i> 通知一覧</h4>
       <div>
         <%= link_to notification_path(@notifications), method: :delete, data: {confirm: "通知を全て削除します。よろしいですか？"},class: 'btn btn-outline-danger ' do %>
-        <p class="col-3 mx-auto d-inline"><i class="fas fa-trash-alt "></i>通知を削除</p>
+        <p class="col-3 mx-auto d-inline"><i class="fas fa-trash-alt "></i>通知をすべて削除</p>
         <% end %>
       </div>
       <% if @notifications.exists? %>
-      <div class="notification-index">
+      <div class="border p-5 mt-4 background shadow">
         <%= render @notifications %>
       </div>
       <% else %>
-       <p class="my-3">通知はありません</p>
+       <p class="mt-4 border background shadow p-5">通知はありません</p>
       <% end %>
     </div>
   </div>

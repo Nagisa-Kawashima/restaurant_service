@@ -1,4 +1,4 @@
-<div class="col-md-5">
+<div class="col-md-5 border py-5 background shadow">
   <div class="plofile_image">
     <%= image_tag user.get_profile_image,class: "user_image", size: '200x200'%>
   </div>
@@ -7,7 +7,7 @@
     <%= render "public/relationships/btn", user: user %>
   <% end %>
   </div>
-  <table class="table bg-white border border-4">
+  <table class="table bg-white">
     <tr>
       <th>名前</th>
         <td><%= user.name %></td>
@@ -28,8 +28,8 @@
     </tr>
     <tr>
       <th>フォロー</th>
-        <td>
-        <%= link_to user_followings_path(user) do %>
+        <td >
+        <%= link_to user_followings_path(user), class: 'btn btn-success px-4' do %>
         <%= user.followings.count %>
         <% end %>
         </td>
@@ -37,13 +37,13 @@
     <tr>
        <th>フォロワー</th>
         <td>
-        <%= link_to user_followers_path(user) do %>
+        <%= link_to user_followers_path(user), class: 'btn btn-primary px-4' do %>
         <%= user.followers.count %>
         <% end %>
         </td>
     </tr>
   </table>
-<%=link_to likes_user_path(user),class: 'btn btn-outline-success w-100' do %>
+<%=link_to likes_user_path(user),class: 'btn btn-outline-danger w-100' do %>
     <i class="fas fa-heart"></i>いいねした投稿 (<%= user.likes.count %>)
   <% end %>
   <% if user == current_user%>

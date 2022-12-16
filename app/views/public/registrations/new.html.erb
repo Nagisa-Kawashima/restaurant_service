@@ -3,15 +3,15 @@
     <div class="col-lg-5 mx-3">
       <%= render "public/shared/error_messages", resource: resource %>
     </div>
-    <div class="sign_up col-lg-8 mx-auto text-center border border-5 mt-5">
-      <h4 class="mt-3"><i class="fas fa-user-plus"></i> 新規登録</h4>
+    <div class="sign_up col-md-8 mx-auto text-center mt-5 py-3 logo shadow">
+      <h4 class="my-3"><i class="fas fa-user-plus"></i> 新規登録</h4>
       <%= form_with model: resource, url: user_registration_path do |f| %>
         <div class="field　mt-3">
-          <%= f.label :名前（20文字以内）, class: "form-label" %><br />
+          <i class="fa-solid fa-signature"></i> <%= f.label :名前（20文字以内）, class: "form-label" %><br />
           <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "あなたのお名前を入力してください", class: "form-control w-50 mx-auto" %>
         </div>
         <div class="field mt-3">
-          <%= f.label :国名 %><br />
+          <i class="fa-solid fa-earth-americas"></i> <%= f.label :国籍 %><br />
             <%= f.country_select :country_code, {include_blank: "選択して下さい"}, class: 'form-select form-control w-50 mx-auto mt-2' %>
 
         </div>
@@ -40,7 +40,7 @@
         </div>
       <% end %>
     </div>
-    <div class="sign_up sign_up col-lg-8 mx-auto text-center border border-5 mt-3 mb-5">
+    <div class="sign_up sign_up col-md-8 mx-auto text-center mt-4 py-4 background shadow">
      <p class="m-3">登録済みの方</p>
        <%= render "public/shared/links" %>
     </div>

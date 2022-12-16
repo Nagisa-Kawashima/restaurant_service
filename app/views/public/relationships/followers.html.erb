@@ -8,27 +8,27 @@
       <% end %>
       <% if @users.exists? %>
       <% @users.each do |user| %>
-      <div class="user_index">
-      <table class="table bg-white text-center align-middle">
-        <thead>
-          <tr>
-            <th>画像</th>
-            <th>名前</th>
-            <th>フォロー</th>
-            <th>フォロワー</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td> <%= image_tag user.get_profile_image,class: "comment-user-image", size: '130x130'%></td>
-            <td><%= user.name %></td>
-            <td><%= user.followings.count %></td>
-            <td><%= user.followers.count %></td>
-            <td><%= link_to '詳細へ', user, class: 'btn btn-primary'  %></td>
-          </tr>
-        </tbody>
-      </table>
+      <div>
+        <table class="table background shadow text-center align-middle">
+          <thead>
+            <tr>
+              <th>画像</th>
+              <th>名前</th>
+              <th>フォロー</th>
+              <th>フォロワー</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td> <%= image_tag user.get_profile_image,class: "comment-user-image", size: '130x130'%></td>
+              <td><%= user.name %></td>
+              <td><%= user.followings.count %></td>
+              <td><%= user.followers.count %></td>
+              <td><%= link_to '詳細へ', user, class: 'btn btn-primary'  %></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <% end %>
       <% else %>
