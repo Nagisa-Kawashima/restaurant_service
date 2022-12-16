@@ -14,10 +14,46 @@
  *= require_self
  */
 .main {
-  min-height: 1200px;/*高さの最小値を指定*/
+  min-height: 1100px;/*高さの最小値を指定*/
   background-color: #FFFAF0;
 }
 
+/****--------- 回転 ---------****/
+.spin{
+  transition: transform 1.5s ease 0s;
+}
+.spin:hover{
+  transform:rotate(360deg);
+}
+
+/****--------- 浮く ---------****/
+.float{
+  transition: transform 0.2s ease 0s;
+}
+.float:hover{
+  transform:translate(0, -10%) ;
+}
+
+
+/****--------- ふわふわ ---------****/
+.fwari{
+  animation:fwari ease-in-out 2s infinite alternate;
+  -webkit-animation:fwari ease-in-out 2s infinite alternate;
+  -moz-animation:fwari ease-in-out 2s infinite alternate;
+}
+@keyframes fwari{
+  0%   { transform:translate(0%, 0%); }
+  100% { transform:translate(0%, -30px); }
+}
+@-webkit-keyframes fwari{
+  0%   { -webkit-transform:translate(0%, 0%); }
+  100% { -webkit-transform:translate(0%, -30px); }
+}
+
+@-moz-keyframes fwari{
+  0%   { -moz-transform:translate(0%, 0%); }
+  100% { -moz-transform:translate(0%, -30px); }
+}
 .nature {
   background-image: image-url("nature.jpg");
   background-size:  cover;
@@ -28,6 +64,9 @@
   object-fit: cover; /*ボックスが画像で埋まるようにリサイズ*/
 }
 
+ul {
+  list-style: none;
+}
 li {
   white-space: nowrap; /*自動的な折り返しを禁止する*/
 }
@@ -38,6 +77,10 @@ th {
 
 td {
   white-space: nowrap;
+}
+a {
+  text-decoration: none;
+  color: #000000;
 }
 
 
@@ -139,7 +182,7 @@ td {
 #contact {
     background-color: rgba(246, 240, 240, 0.923);
     text-align: center;
-    margin-top: 30px;
+    margin: 30px 0px;
     padding: 30px;
 }
 

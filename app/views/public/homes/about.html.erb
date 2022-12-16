@@ -30,15 +30,28 @@
           </div>
       </div>
     </section>
-    <section id="contact">
+    <% if user_signed_in? %>
+      <section id="contact">
         <div class="container">
             <h2 class="heading">Contact</h2>
             <p class="heading-text my-3">ご意見やご感想等お寄せください。今後の参考にさせて頂きます。</p>
             <div class="contact-group">
               <div class="col-md-12">
+                <%= link_to 'お問い合わせフォームへ', new_contact_path(user_id: current_user.id), class: 'btn btn-outline-dark' %>
+              </div>
+            </div>
+        </div>
+      </section>
+    <% else %>
+      <section id="contact">
+        <div class="container">
+            <h2 class="heading">Contact</h2>
+            <p class="heading-text my-3">ご意見やご感想等お寄せください。<br>今後の参考にさせて頂きます。なお、本アプリの会員でない方からのお問い合わせは<br>お時間を頂く場合がございます。<br>何卒ご了承くださいませ。</p>
+            <div class="contact-group">
+              <div class="col-md-12">
                   <div class="mb-3">
                     <h4>Mail</h4>
-                    <a href="#">kawashima.it333&#64;outlook.com</a>
+                    <a href="#">xxxxxxxxx&#64;gmail.com</a>
                   </div>
                   <div>
                     <h4>Tel</h4>
@@ -47,7 +60,8 @@
               </div>
             </div>
         </div>
-    </section>
-    <div class="d-grid gap-2 col-6 mx-auto my-5"> <%= link_to '今すぐ始めよう', new_user_registration_path, class: "btn btn-outline-success" %></div>
+      </section>
+      <div class="d-grid gap-2 col-6 mx-auto my-5 miniCon fwari"> <%= link_to '今すぐ始めよう', new_user_registration_path, class: "btn btn-outline-success" %></div>
+    <% end %>
   </div>
 </div>

@@ -45,10 +45,7 @@ Rails.application.routes.draw do
     get "user/unsubscribe" => "users#unsubscribe"
     #ユーザ退会処理
     patch "user/withdraw" => "users#withdraw"
-
-
-
-
+    
     # 投稿機能
     resources :posts do
       #コメント機能
@@ -65,6 +62,9 @@ Rails.application.routes.draw do
     resources :chats, only: [:create, :show, :destroy]
      #通知機能
     resources :notifications, only: [:index, :destroy]
+    #お問い合わせ機能
+    resources :contacts, only: [:new, :create]
+
   end
 
 
