@@ -27,11 +27,8 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    # コメントのページネーション用
-    @comments = @post.post_comments.page(params[:page]).per(5)
     @comment = PostComment.new
     @user = @post.user
-
   end
 
   def edit

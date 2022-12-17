@@ -5,7 +5,6 @@ class Public::PostCommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = current_user.post_comments.new(post_comment_params)
     @comment.post_id = @post.id
-    # @comment.score = Language.get_data(comment_params[:comment])
     if @comment.save
       # コメントしたことを通知する
       @post.create_notification_comment!(current_user, @comment.id)

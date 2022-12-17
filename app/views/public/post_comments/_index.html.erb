@@ -9,7 +9,7 @@
     <div>
       <%= link_to user_path(comment.user),class: "link" do  %>
       <%= comment.user.name %>&ensp;
-      <%= image_tag comment.user.get_profile_image, class: "comment-user-image miniCon width" , size: '50x50'%>
+      <%= image_tag comment.user.get_profile_image, class: "comment-user-image width" , size: '50x50'%>
       <% end %>
     </div>
     <div>
@@ -23,5 +23,6 @@
 <% else %>
   <p>コメントはまだありません</p>
 <% end %>
+
 
 

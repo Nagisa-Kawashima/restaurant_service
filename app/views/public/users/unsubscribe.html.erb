@@ -1,6 +1,6 @@
-<div class="container d-flex justify-content-center">
+<div class="container">
   <div class="row">
-    <div class="col-12 text-center border border-4 p-5 mt-5">
+    <div class="col-md-8 text-center background shadow p-5 mt-5 mx-auto">
       <div class="post_show">
         <h4><strong>本当に退会しますか？</strong></h4>
         <b>※退会前に下記項目をご確認ください。</b>
@@ -14,12 +14,12 @@
          <p>上記内容をご確認後、<br />
          退会される場合は退会するをクリックしてください。</p>
         </div>
-        <div class="d-flex justify-content-around mt-5">
+        <div class="d-flex justify-content-around mt-5 text-center">
           <div>
-            <%= link_to '退会しない', edit_user_path(current_user), data: {"turbolinks" => false}, class: "btn btn-outline-success" %>
+            <%= link_to '退会しない', edit_user_path(current_user), data: {"turbolinks" => false}, class: "btn btn-primary" %>
           </div>
           <div>
-            <%= link_to '退会する', user_withdraw_path, data: {confirm: "本当に退会しますか？"},method: :patch, class: "ml-5 btn btn-outline-danger px-4" %>
+            <%= link_to '退会する', user_withdraw_path, data: {confirm: "本当に退会しますか？"},method: :patch, class: "ml-5 btn btn-danger px-4" %>
           </div>
       </div>
     </div>

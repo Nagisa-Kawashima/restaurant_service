@@ -90,13 +90,6 @@ li {
   white-space: nowrap; /*自動的な折り返しを禁止する*/
 }
 
-// th {
-//   white-space: nowrap; /*自動的な折り返しを禁止する*/
-// }
-
-// td {
-//   white-space: nowrap;
-// }
 a {
   text-decoration: none;
   color: #000000;
@@ -353,3 +346,25 @@ span.page.current {
   border-radius: 10%;
 }
 
+.icon_image {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  background-image: image-url("waiter.jpg");
+  background-repeat: no-repeat;
+  animation-timing-function: linear;
+  animation-direction: alternate-reverse;
+  animation: fuwafuwa 7s infinite;
+
+}
+
+
+@keyframes fuwafuwa {
+  0% {
+    transform: translateX(-300px);
+  }
+
+  100% {
+    transform: translateX(300px);
+  }
+}
