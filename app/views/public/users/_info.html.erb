@@ -9,7 +9,7 @@
   </div>
   <table class="table bg-white">
     <tr>
-      <th>名前</th>
+      <th width="150">名前</th>
         <td><%= user.name %></td>
     </tr>
     <% if user == current_user%>
@@ -44,7 +44,7 @@
     </tr>
   </table>
 <%=link_to likes_user_path(user),class: 'btn btn-outline-danger w-100' do %>
-    <i class="fas fa-heart"></i>いいねした投稿 (<%= user.likes.count %>)
+    <i class="fa-regular fa-thumbs-up"></i>いいねした投稿 (<%= user.likes.count %>)
   <% end %>
   <% if user == current_user%>
     <%=link_to user_draft_index_path(user),class: 'mt-2 btn btn-outline-info w-100' do %>

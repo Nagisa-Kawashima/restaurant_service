@@ -1,19 +1,18 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 my-3">
-    <h4><i class="fas fa-tag"></i> ハッシュタグを作成</h4>
-    <%= form_with model: @tag, url: admin_tags_path, method: :post do |f| %>
-     <%= f.label :name, "ハッシュタグ名" %><br>
-      <div class="form-group">
-       <%= f.text_field :name %><br>
-      </div>
-     <%= f.submit'登録する', class: "btn btn-success w-50" %>
-    <% end %>
+     <h4><i class="fas fa-tag"></i> ハッシュタグを作成</h4>
+      <%= form_with model: @tag, url: admin_tags_path, method: :post do |f| %>
+       <%= f.label :name, "ハッシュタグ名" %><br>
+        <div class="form-group">
+         <%= f.text_field :name %><br>
+        </div>
+       <%= f.submit'登録する', class: "btn btn-success w-50" %>
+      <% end %>
     </div>
     <div class="col-md-6 my-3">
-    <h4><i class="fas fa-tags"></i> ハッシュタグを編集・削除</h4>
-     <table class="table table-border">
-       <%= render "tags", tags: @tags %>
+      <h4><i class="fas fa-tags"></i> ハッシュタグを編集・削除</h4>
+      <%= render "tags", tags: @tags %>
     </div>
   </div>
 </div>

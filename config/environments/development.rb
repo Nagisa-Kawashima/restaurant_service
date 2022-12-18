@@ -74,8 +74,8 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
   config.hosts << "cab0e1535dcf48cd90fc5ab70a58ff04.vfs.cloud9.ap-northeast-1.amazonaws.com"
-  
-  
+
+
   Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
@@ -89,6 +89,6 @@ Rails.application.configure do
     enable_starttls_auto:  true
    }
   end
-  
-  
+
+
 end

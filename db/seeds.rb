@@ -5,6 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+   Admin.create!(
+    email: ENV['SECRET_EMAIL'],
+     password: ENV['SECRET_KEY'],
+  )
 
 
   #ユーザの作成
@@ -80,15 +84,15 @@
 
 
     #タグ作成
-  Tag.create!([                #ID
-    { name: "RIEDEL" },   #1
-    { name: "ブルゴーニュ" },    #2
-    { name: "イタリアン" },            #3
-    { name: "フレンチ" },         #4
-    { name: "ソムリエ" }, #5
-    { name: "ソムリエナイフ" },     #6
-    { name: "サービス技能" },       #7
-    { name: "デクパージュ" }        #8
+  Tag.create!([
+    { name: "RIEDEL" },
+    { name: "ブルゴーニュ" },
+    { name: "イタリアン" },
+    { name: "フレンチ" },
+    { name: "ソムリエ" },
+    { name: "ソムリエナイフ" },
+    { name: "サービス技能" },
+    { name: "デクパージュ" }
   ])
 
 
@@ -125,6 +129,9 @@
       },
       { user_id: 1,
         post_id: 3
+      },
+      { user_id: 1,
+        post_id: 2
       }
     ]
   )
@@ -133,11 +140,15 @@
     [
       { user_id: 1,
         post_id: 3,
-        comment: "いいですね！私はモンドールが好きなんですよ！",
+        comment: "いいですね！私はモンドールが好きなんですよ！冬にオーブンで焼いたフォンデュは最高ですよ！",
       },
       { user_id: 2,
         post_id: 1,
         comment: "いいですね！お勧めのカリフォルニアワインありませんか？",
+      },
+      { user_id: 3,
+        post_id: 1,
+        comment: "こんにちは！おすすめのシャルドネあったら教えてください！",
       }
     ]
   )
@@ -168,6 +179,14 @@
       { user_id: 1,
         room_id: 1,
         message: "田中さんはじめまして！！よろしくお願いします！"
+      },
+      { user_id: 1,
+        room_id: 1,
+        message: "田中さんはいつもどんな勉強をされてますか？\r\n私は最近イタリアのお菓子にはまってて、作る練習してます！"
+      },
+      { user_id: 1,
+        room_id: 1,
+        message: "最近はカンノーリ作ってみました！"
       }
     ]
   )
@@ -180,6 +199,18 @@
         visited_id: 1,
         post_id: 1,
         action: "like",
+        checked: false,
+      },
+      { visiter_id: 3,
+        visited_id: 1,
+        post_id: 1,
+        post_comment_id: 3,
+        action: "comment",
+        checked: false,
+      },
+      { visiter_id: 2,
+        visited_id: 1,
+        action: "follow",
         checked: false,
       }
     ]
