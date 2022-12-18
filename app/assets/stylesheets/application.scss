@@ -351,6 +351,7 @@ span.page.current {
   height: 80px;
   margin: 0 auto;
   background-image: image-url("waiter.jpg");
+  border-radius: 20%;
   background-repeat: no-repeat;
   animation-timing-function: linear;
   animation-direction: alternate-reverse;
@@ -364,7 +365,23 @@ span.page.current {
     transform: translateX(-300px);
   }
 
-  100% {
+  40% {
+    transform: translateX(100px);
+  }
+
+  70% {
     transform: translateX(300px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+
+// テブレット～PC対応
+@media screen and (min-width:600px) {
+  .newpost_flame {
+    margin-right: 35px;
   }
 }
