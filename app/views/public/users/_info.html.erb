@@ -28,7 +28,7 @@
     </tr>
     <tr>
       <th>フォロー</th>
-        <td >
+        <td>
         <%= link_to user_followings_path(user), class: 'btn btn-success px-4' do %>
         <%= user.followings.count %>
         <% end %>
@@ -43,7 +43,7 @@
         </td>
     </tr>
   </table>
-<%=link_to likes_user_path(user),class: 'btn btn-outline-danger w-100' do %>
+  <%= link_to likes_user_path(user),class: 'btn btn-outline-danger w-100' do %>
     <i class="fa-regular fa-thumbs-up"></i>いいねした投稿 (<%= user.likes.count %>)
   <% end %>
   <% if user == current_user%>
@@ -56,6 +56,8 @@
     <%=link_to notifications_path,class: 'mt-2 btn btn-outline-secondary w-100' do %>
       <i class="fas fa-bell"></i> 通知一覧
     <% end %>
+    <% if user.name != "guestuser" %>
     <%= link_to '編集', edit_user_path, class: 'mt-2 btn btn-outline-primary w-100'%>
+    <% end %>
   <% end %>
 </div>

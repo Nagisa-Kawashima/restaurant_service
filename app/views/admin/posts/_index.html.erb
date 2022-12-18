@@ -1,13 +1,16 @@
-<div class="post_list">
+<div class="post_list col-12 mb-3 d-flex flex-wrap d-grid gap-5 justify-content-center">
   <% posts.each do |post| %>
-    <div class="post">
+    <div class="post shadow-lg text-center color">
      <%= link_to admin_user_post_path(post.user, post) do %>
-     <%= image_tag post.get_image,class:"image_index"%>
+     <%= image_tag post.get_image,class:"image_index", size:'300x300'%>
      <% end %>
      <p><strong><%= post.title %></strong></p>
-     <p><i class="far fa-comment-alt"></i><%= link_to " #{post.post_comments.count} ", post_path(post.id) %></p>
+     <p class="float"><i class="far fa-comment-alt"></i><%= link_to " #{post.post_comments.count} ", post_path(post.id) %></p>
+     <p class="small"><%= l post.created_at %></p>
     </div>
   <% end %>
+</div>
+<div class="col-md-3 col-sm-5 ms-auto my-3"><%= link_to 'ユーザー詳細画面に戻る', admin_user_path(@user.id) , class: 'btn btn-success '%></div>
 <div class="pagination">
   <%= paginate posts %>
 </div>

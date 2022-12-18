@@ -1,10 +1,10 @@
 class Admin::TagsController < ApplicationController
-  
+
   before_action :authenticate_admin!
      before_action :tag_choice, only: [:edit, :update, :destroy]
   def new
     @tag = Tag.new
-    @tags = Tag.all.order(created_at: "DESC").page(params[:page]).per(20)
+    @tags = Tag.all.order(created_at: "DESC").page(params[:page]).per(15)
   end
 
   def create
@@ -17,7 +17,7 @@ class Admin::TagsController < ApplicationController
   end
 
   def edit
-    @tags = Tag.all.order(created_at: "DESC").page(params[:page]).per(20)
+    @tag = Tag.find(params[:id])
   end
 
   def update

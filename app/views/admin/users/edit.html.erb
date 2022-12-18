@@ -1,22 +1,35 @@
 <div class ="container" >
   <div class="row">
-    <div class='col-md-8'>
-    <h4 class="my-4"><i class="fas fa-user-edit"></i>ユーザー編集</h4>
-      <%= form_with model: @user,url: admin_user_path(@user), method: :PATCH do |f|  %>
-      <%= f.label :"名前" %><br>
-      <%= f.text_field :name %> <br>
-      <%= f.label :email,"メールアドレス" %><br>
-      <%= f.text_field :email %><br>
-      <%= f.label :introduction,"自己紹介文" %><br>
-      <%= f.text_area :introduction %><br>
-      <%= f.label :country_code,"国名" %><br>
-      <%= f.country_select :country_code, {include_blank: "選択して下さい"}, class: 'form-select' %><br>
-      <%= f.radio_button :is_deleted, "false" %>
-      <%= f.label :is_deleted, "有効", value: false %>
-      <%= f.radio_button :is_deleted, "true" %>
-      <%= f.label :is_deleted, "退会", value: true %><br>
-      <%= f.submit '変更する', class: "btn btn-success w-25" %>
-      <% end %>
+    <div class='col-md-8 mx-auto text-center'>
+      <h4 class="my-4 col-md-5 top1 mx-auto"><i class="fas fa-user-edit"></i>ユーザー編集</h4>
+      <div  class="border p-5 shadow background">
+        <%= form_with model: @user,url: admin_user_path(@user), method: :PATCH do |f|  %>
+        <div class="post_form text-center mt-5">
+          <h5><%= f.label :"名前" %></h5>
+          <%= f.text_field :name, class: 'form-control' %> <br>
+          <h5><%= f.label :email,"メールアドレス" %></h5>
+          <%= f.text_field :email, class: 'form-control' %><br>
+          <h5><%= f.label :introduction,"自己紹介文" %></h5>
+          <%= f.text_area :introduction, class: 'form-control' %><br>
+          <h5><%= f.label :country_code,"国名" %></h5>
+          <%= f.country_select :country_code, {include_blank: "選択して下さい"}, class: 'form-control h-50' %><br>
+
+          <div class="d-flex justify-content-around m-3 col-md-5 mx-auto fs-4">
+            <div>
+              <%= f.radio_button :is_deleted, "false" %>
+              <%= f.label :is_deleted, "有効", value: false %>
+            </div>
+            <div>
+              <%= f.radio_button :is_deleted, "true" %>
+              <%= f.label :is_deleted, "退会", value: true %>
+            </div>
+          </div>
+          <div>
+            <%= f.submit '変更する', class: "btn btn-success w-25" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

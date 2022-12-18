@@ -70,7 +70,8 @@ class Public::PostsController < ApplicationController
 
   # タグ検索の一覧ページ
   def tag
-    @tag = Tag.find_by(name: params[:name])
+    # 開発環境で起こるデーターベースの認識の違いによるエラーの解消のため、downcaseをつける
+    @tag = Tag.find_by(name: params[:name].downcase)
     @post = @tag.posts.page(params[:page])
   end
 
