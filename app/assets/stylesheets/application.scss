@@ -155,6 +155,7 @@ a {
   height: 30%;
 }
 
+
 .about {
   background-image: image-url("about_image.jpg");
   background-size:  cover;
@@ -355,7 +356,7 @@ span.page.current {
   background-repeat: no-repeat;
   animation-timing-function: linear;
   animation-direction: alternate-reverse;
-  animation: fuwafuwa 7s infinite;
+  animation: fuwafuwa  7s infinite;
 
 }
 
@@ -373,15 +374,11 @@ span.page.current {
     transform: translateX(300px);
   }
 
+  80% {
+    transform: rotate(6deg);
+  }
+
   100% {
     transform: translateX(0px);
-  }
-}
-
-
-// テブレット～PC対応
-@media screen and (min-width:600px) {
-  .newpost_flame {
-    margin-right: 35px;
   }
 }

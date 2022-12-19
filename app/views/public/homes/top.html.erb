@@ -39,16 +39,16 @@
         </button>
       </div>
     </div>
-      <div class="top_list col-md-12 d-inline-flex justify-content-around my-5 text-center">
-        <div class="top1 col-md-3 col-sm-4 py-2 miniCon float">
+      <div class="top_list col-12  text-center d-flex justify-content-evenly my-5 mx-auto">
+        <div class="top1 col-md-3 col-sm-6 p-4 float ">
           <p><b>初めてご利用の方</b><br>新規登録お願いします</p>
           <%= link_to '新規登録', new_user_registration_path, class: "btn btn-outline-success" %>
         </div>
-        <div class="top1 col-md-3 col-sm-4 py-2 miniCon float">
+        <div class="top1 col-md-3 col-sm-6 p-4 float">
           <p><b>既に登録済みの方</b><br>ログインしてください</p>
           <%= link_to 'ログイン', new_user_session_path, class: "btn btn-outline-primary" %>
         </div>
-        <div class="top1 col-md-3 col-sm-4 py-2 miniCon float">
+        <div class="top1 col-md-3  col-sm-6 p-4 float">
           <p><b>サイトを覗いてみる</b><br>ゲストユーザーとして<br>ご利用いただけます</p>
           <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "btn btn-outline-info" %>
         </div>
@@ -56,13 +56,13 @@
       </div>
 
       <!--新着投稿欄-->
-      <div class="col-12 w-100 ">
+      <div class="col-12 w-100 yoko">
         <div class="icon_image shadow"></div>
       </div>
       <div class="top_font col-md-5 text-center fs-1 fst-italic my-5 mx-auto">latest Posts</div>
       <div class="newpost mb-5 mx-auto text-center">
         <% @new_posts.each do |new_posts| %>
-          <div class="newpost_flame d-inline-block">
+          <div class="newpost_flame d-inline-block color">
             <%= link_to posts_path do %>
               <%= image_tag new_posts.get_image,class: "image_new shadow-lg", size:'200x200' %>
             <% end %>
