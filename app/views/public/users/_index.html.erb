@@ -4,7 +4,17 @@
     <% posts.each do |post| %>
     <div class="post shadow-lg color">
       <%= link_to post_path(post.id),data: {"turbolinks" => false} do %>
-       <%= image_tag post.get_image,class: "image_index", size: '200x200'%>
+      <% if post.images.attached? %>
+      <div style="width: 700px;">
+        <p><strong>Image:</strong></p>
+        <% post.images.each do |image| %>
+          <%= image_tag image, class: "post_image my-3  shadow-lg", size: '300x300'%>
+        <% end %>
+      </div>
+      <% end %>
+
+
+       <%#= image_tag post.get_image,class: "image_index", size: '200x200'%>
       <% end %>
       <p><%= post.title %></p>
       <p class="float"><i class="far fa-comment-alt"></i><%= link_to " #{post.post_comments.count} ", post_path(post.id) %></p>

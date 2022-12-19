@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 module RestaurantService
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    config.active_storage.replace_on_assign_to_many = false
     config.load_defaults 6.1
     config.time_zone = 'Tokyo'
     config.i18n.default_locale = :ja

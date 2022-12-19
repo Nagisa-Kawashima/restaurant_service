@@ -1,10 +1,27 @@
 <div class="post_list col-12 mb-3 d-flex flex-wrap d-grid gap-5 justify-content-center">
   <% posts.each do |post| %>
-   <% if post.user.is_deleted == false %>
+    <% if post.user.is_deleted == false %>
      <div class="post shadow-lg text-center color">
       <%= link_to post_path(post.id),data: {"turbolinks" => false} do %>
-        <%= image_tag post.get_image,class: "image_index", size:'300x300'%>
+         <div class="col-12 mx-auto text-center">
+        <% if post.images.attached? %>
+        <div style="width: 700px;">
+          <p><strong>Image:</strong></p>
+          <p>
+            <% post.images.each do |image| %>
+              <%= image_tag image, class: "post_image my-3  shadow-lg", size: '300x300'%>
+            <% end %>
+          </p>
+        </div>
+
+        <% else %>
+          <%#= image_tag post.get_no_post_image,class: "post_image my-3  shadow-lg", size: '300x300'%>
+          <%#= image_tag 'no_post_image.jpg' %>
+        <% end %>
+      </div>
+
       <% end %>
+        <%#= image_tag post.get_image,class: "image_index", size:'300x300'%>
       <p><strong><%= post.title %></strong></p>
       <p class="float"><i class="far fa-comment-alt"></i><%= link_to " #{post.post_comments.count} ", post_path(post.id) %>
         &nbsp;<i class="far fa-heart"></i><%= link_to " #{post.likes.count} ", post_path(post.id) %>

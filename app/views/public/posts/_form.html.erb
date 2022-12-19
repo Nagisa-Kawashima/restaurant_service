@@ -1,8 +1,8 @@
 <div class="col-md-9 mx-auto background shadow p-5">
   <p>（タイトル・本文・は必須入力）</p>
   <%= form_with model: post do |f| %>
-  <div class="mb-3"><i class="fas fa-camera"></i> <%= f.label :image,"画像を選択する" %></div>
-  <%= f.file_field :image , class: 'form-control'%>
+  <div class="mb-3"><i class="fas fa-camera"></i> <%= f.label :images,"画像を選択する" %></div>
+  <%= f.file_field :images , multiple: true, class: 'form-control'%>
   <div id="new-image"></div>
   <div class="my-3"><i class="fas fa-tag"></i> <%= f.label :title,"タイトル" %></div>
   <%= f.text_field :title, placeholder: "タイトルを入力", class: 'form-control' %><br>

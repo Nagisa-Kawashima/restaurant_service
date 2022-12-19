@@ -64,7 +64,15 @@
         <% @new_posts.each do |new_posts| %>
           <div class="newpost_flame d-inline-block color">
             <%= link_to posts_path do %>
-              <%= image_tag new_posts.get_image,class: "image_new shadow-lg", size:'200x200' %>
+              <% if new_posts.images.attached? %>
+              <div style="width: 700px;">
+                <p><strong>Image:</strong></p>
+                <% new_posts.images.each do |image| %>
+                  <%= image_tag image, class: "post_image my-3  shadow-lg", size: '300x300'%>
+                <% end %>
+              </div>
+              <% end %>
+              <%#= image_tag new_posts.image,class: "image_new shadow-lg", size:'200x200' %>
             <% end %>
              <p><strong><%= new_posts.title %></strong></p>
           </div>

@@ -12,14 +12,21 @@ class Post < ApplicationRecord
   validates :explaination, presence: true, length: { minimum: 1, maximum: 1000 }
 
   # 投稿画像設定
-  has_one_attached :image
-  def get_image
-    unless image.attached?
-      file_path = Rails.root.join('app/assets/images/no_post_image.jpg')
-      image.attach(io: File.open(file_path), filename: 'no_image.jpg', content_type: 'image/png')
-    end
-      image
+  # has_one_attached :image
+  has_many_attached :images
+
+  def get_no_post_image
+    file_path = Rails.root.join('app/assets/images/no_post_image.jpg')
+    # image.attach(io: File.open(file_path), filename: 'no_image.jpg', content_type: 'image/png')
   end
+
+  # def get_image
+  #   unless image.attached?
+  #     file_path = Rails.root.join('app/assets/images/no_post_image.jpg')
+  #     image.attach(io: File.open(file_path), filename: 'no_image.jpg', content_type: 'image/png')
+  #   end
+  #     image
+  # end
 
   #下書き機能  公開中 /published,下書き  /draft
   enum is_draft: { draft: 0, published: 1 }

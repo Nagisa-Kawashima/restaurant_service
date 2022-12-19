@@ -11,7 +11,23 @@
         <p>投稿日時: <%= l post.created_at %></p>
     </div>
     <div class="d-flex flex-wrap">
-      <div class="col-12 mx-auto text-center"> <%= image_tag post.get_image,class: "post_image my-3  shadow-lg", size: '300x300'%></div>
+      <div class="col-12 mx-auto text-center">
+        <% if post.images.attached? %>
+        <div style="width: 700px;">
+          <p><strong>Image:</strong></p>
+          <% post.images.each do |image| %>
+            <%= image_tag image, class: "post_image my-3  shadow-lg", size: '300x300'%>
+          <% end %>
+        </div>
+        <%# else %>
+          <%#= image_tag post.get_no_post_image,class: "post_image my-3  shadow-lg", size: '300x300'%>
+        <% end %>
+      </div>
+
+
+
+
+
       <div class="col-9 text-center mx-auto">
         <h5>タイトル</h5>
         <p><%= post.title %></p>
