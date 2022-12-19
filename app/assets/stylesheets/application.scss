@@ -169,7 +169,6 @@ a {
   top:15%; left:25%;
   background-color:rgba(0,0,0,0.4);
   color:#FFF;
-  height: 50%;
 }
 
 #profile {
@@ -381,4 +380,13 @@ span.page.current {
   100% {
     transform: translateX(0px);
   }
+}
+
+// スマホ対応
+@media screen and (max-width: 600px){
+   .about_p {
+    position:absolute;
+    top:15%; left:0%;
+  }
+
 }
