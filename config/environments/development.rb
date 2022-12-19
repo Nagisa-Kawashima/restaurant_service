@@ -87,7 +87,7 @@ Rails.application.configure do
     password:             ENV["ACTION_MAILER_KEY"],
     authentication:       'plain',
     enable_starttls_auto:  true
-   }
+  }
   end
 
 
