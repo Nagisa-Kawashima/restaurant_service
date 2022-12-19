@@ -382,11 +382,108 @@ span.page.current {
   }
 }
 
+.sticky-sm-top {
+  z-index: 10;
+}
+.pc-menu {
+  display: block;
+}
+.sp-menu {
+  display: none;
+}
+.overlay {
+  display: none;
+}
+
+// header {
+//   z-index: 10;
+// }
 // スマホ対応
-@media screen and (max-width: 600px){
-   .about_p {
+@media screen and (max-width: 991px){
+  .about_p {
     position:absolute;
     top:15%; left:0%;
   }
 
+
+
+  .overlay {
+    height: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    background-color: rgba(186, 172, 186, 0.9);
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .6s;
+    display: block;
+
+  }
+
+  .overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .overlay ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    list-style: none;
+  }
+
+  .overlay li {
+    padding-top: 20px;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity .3s, transform .3s;
+  }
+
+  .overlay.show li {
+    opacity: 1;
+    transform: none;
+  }
+  .overlay.show li:nth-child(1) {
+    transition-delay: .1s;
+  }
+  .overlay.show li:nth-child(2) {
+    transition-delay: .2s;
+  }
+  .overlay.show li:nth-child(3) {
+    transition-delay: .3s;
+  }
+  .overlay.show li:nth-child(4) {
+    transition-delay: .4s;
+  }
+  .overlay.show li:nth-child(5) {
+    transition-delay: .5s;
+  }
+
+
+  .overlay #close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 32px;
+    cursor: pointer;
+  }
+  .sp-menu #open {
+    font-size: 32px;
+    line-height: 50px;
+    cursor: pointer;
+  }
+  .sp-menu #open.hide {
+    display: none;
+  }
+  .pc-menu {
+    display: none;
+  }
+  .sp-menu {
+    display: block;
+  }
 }
