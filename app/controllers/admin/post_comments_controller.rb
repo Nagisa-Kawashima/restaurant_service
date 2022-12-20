@@ -3,7 +3,7 @@ class Admin::PostCommentsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @comments = @user.post_comments
+    @comments = @user.post_comments.page(params[:page]).per(6)
   end
 
   def destroy
