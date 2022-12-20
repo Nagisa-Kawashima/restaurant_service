@@ -15,6 +15,19 @@ ja:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
       short: "%Y/%m/%d"
+  world:
+    bl:
+      name: サン・バルテルミー島
+    bq:
+      name: BES諸島
+    cw:
+      name: キュラソー
+    mf:
+      name: サン・マルタン
+    ss:
+      name: 南スーダン
+    sx:
+      name: シント・マールテン
   activerecord:
     attributes:
       contact:
