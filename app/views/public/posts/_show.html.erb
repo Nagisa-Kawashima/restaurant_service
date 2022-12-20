@@ -19,8 +19,9 @@
             <%= image_tag image, class: "post_image my-3  shadow-lg", size: '300x300'%>
           <% end %>
         </div>
-        <%# else %>
-          <%#= image_tag post.get_no_post_image,class: "post_image my-3  shadow-lg", size: '300x300'%>
+        <% else %>
+          <%# image_tag post.get_no_post_image,class: "post_image my-3  shadow-lg", size: '300x300'%>
+           <%= image_tag 'no_post_image.jpg' %>
         <% end %>
       </div>
 

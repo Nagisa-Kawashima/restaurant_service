@@ -1,8 +1,24 @@
 <div class="col-md-9 mx-auto background shadow p-5">
   <p>（タイトル・本文・は必須入力）</p>
   <%= form_with model: post do |f| %>
-  <div class="mb-3"><i class="fas fa-camera"></i> <%= f.label :images,"画像を選択する" %></div>
-  <%= f.file_field :images , multiple: true, class: 'form-control'%>
+  <div class="mb-3"><i class="fas fa-camera"></i> <%= f.label :images,"画像を選択する" ,  class: "form-label", for: "formFileMultiple"%></div>
+  <%= f.file_field :images , multiple: true, class: 'form-control', id: "formFileMultiple"%>
+
+  <% if post.images.attached? %>
+    <p>選択済みの画像（削除する画像にチェックをつけてください）</p>
+    <div style="display: flex; flex-wrap: wrap; width: 750px;">
+    <% post.images.each do |image| %>
+      <div style="display: flex; margin:5px 5px 5px 0;">
+        <%= form.check_box :image_ids, { multiple: true }, image.id, false %>
+        <label for="post_image_ids_<%= image.id %>" >
+          <%= image_tag image, size: '300x200' %>
+        </label>
+      </div>
+    <% end %>
+    </div>
+  <% end %>
+
+
   <div id="new-image"></div>
   <div class="my-3"><i class="fas fa-tag"></i> <%= f.label :title,"タイトル" %></div>
   <%= f.text_field :title, placeholder: "タイトルを入力", class: 'form-control' %><br>
@@ -16,6 +32,13 @@
       <% end%>
     </ul>
   </div>
+
+
+
+
+
+
+
    <!--Post.is_draftで、enumのハッシュ{"published"=>0, "draft"=>1}を取得する。keysで、キー(ハッシュの左側)を配列する。
    mapで、配列の要素に対して1つずつ処理する　|k|に先程のキーを代入　tは日本語化に対応するメソッド。-->
   <div class="form-group">

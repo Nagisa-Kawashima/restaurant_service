@@ -15,10 +15,10 @@ class Post < ApplicationRecord
   # has_one_attached :image
   has_many_attached :images
 
-  def get_no_post_image
-    file_path = Rails.root.join('app/assets/images/no_post_image.jpg')
-    # image.attach(io: File.open(file_path), filename: 'no_image.jpg', content_type: 'image/png')
-  end
+  # def get_no_post_image
+  #   file_path = Rails.root.join('app/assets/images/no_post_image.jpg')
+  #   # image.attach(io: File.open(file_path), filename: 'no_image.jpg', content_type: 'image/png')
+  # end
 
   # def get_image
   #   unless image.attached?
