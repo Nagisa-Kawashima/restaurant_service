@@ -38,6 +38,15 @@ class Public::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+     #添付画像を個別に削除
+    # 削除対象の画像があるかを確認するためにif文で存在確認
+    if params[:post][:image_ids]
+     params[:post][:image_ids].each do |image_id|
+       image = @post.images.find(image_id)
+       image.purge
+     end
+    end
+
     if current_user == @post.user
       if @post.update(post_params)
           redirect_to post_path(@post),notice: ((@post.is_draft == "draft") ? "マイページの下書き投稿に保存しました。" : "更新しました。")
@@ -47,6 +56,10 @@ class Public::PostsController < ApplicationController
     else
       redirect_to posts_path, alert: "本人以外更新できません。"
     end
+
+
+
+
   end
 
 
