@@ -10,20 +10,44 @@
         </div>
         <p>投稿日時: <%= l post.created_at %></p>
     </div>
-    <div class="d-flex flex-wrap">
-      <div class="col-12 mx-auto text-center"> <%= image_tag post.get_image,class: "post_image my-3  shadow-lg", size: '300x300'%></div>
-      <div class="col-9 text-center mx-auto">
-        <h5>タイトル</h5>
-        <p><%= post.title %></p>
-        <h5>本文</h5>
-        <div class="post_show">
-          <p><%= render_with_tags(simple_format(post.explaination))%></p>
-        </div>
 
-        <p class="like-btn"><%= render 'public/likes/btn', post: post %></p>
+    <% if post.images.attached? %>
+    <div class="my-3">
+      <div id="carouselExampleInterval" class="carousel slide col-md-4 mx-auto border" data-bs-ride="carousel" style="width: 300px; height: 300px;">
+        <div class="carousel-inner">
+          <% post.images.each_with_index do |image, i| %>
+            <div class="carousel-item <%= "active" if i == 0 %>" data-bs-interval="5000">
+              <%= image_tag image, class: "post_image ", size: '300x300'%>
+            </div>
+          <% end %>
+        </div>
+        <% if post.images.size > 1 %>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        <% end %>
       </div>
     </div>
+    <% else %>
+    <div class="col-md-4 col-lg-6 mx-auto my-3 text-center" >
+      <%= image_tag 'no_post_image.jpg', size: '300x300' %>
+    </div>
+    <% end %>
 
+    <div class="col-9 text-center mx-auto">
+      <h5>タイトル</h5>
+      <p><%= post.title %></p>
+      <h5>本文</h5>
+      <div class="post_show">
+        <p><%= render_with_tags(simple_format(post.explaination))%></p>
+      </div>
+      <p class="like-btn"><%= render 'public/likes/btn', post: post %></p>
+    </div>
     <div class="text-center">
     <% if post.user == current_user %>
       <%= link_to '編集', edit_post_path, class: 'btn btn-primary w-50'%>
@@ -31,4 +55,38 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+      <!--<div class="col-12 mx-auto text-center">-->
+      <!--  <#% if post.images.attached? %>-->
+      <!--  <div style="width: 700px;">-->
+      <!--    <p><strong>Image:</strong></p>-->
+      <!--    <#% post.images.each do |image| %>-->
+      <!--      <#%= image_tag image, class: "post_image my-3  shadow-lg", size: '300x300'%>-->
+      <!--    <#% end %>-->
+      <!--  </div>-->
+      <!--  <#% else %>-->
+          <%# image_tag post.get_no_post_image,class: "post_image my-3  shadow-lg", size: '300x300'%>
+      <!--     <#%= image_tag 'no_post_image.jpg' %>-->
+      <!--  <#% end %>-->
+      <!--</div>-->
+
+
+
+
+
+
+
+
+
+
+
 

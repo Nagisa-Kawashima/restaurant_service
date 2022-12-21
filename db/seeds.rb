@@ -39,7 +39,49 @@
         introduction: "チリワインは美味しいのでいつも飲んでます！よろしくお願い致します。"}
     ]
   )
-
+  
+  posts_attributes = [
+      {
+        title: "今日のワイン",
+        explaination: "今日はSanford Wineryのピノノワールを飲んでみたよ。\r\n\r\nサンタバーバラのピノのパイオニアとも言える、実にエレガントな味わいだったよ！\r\n\r\n#SanfordWinery#Pinotnoir#カリフォルニアワイン#おしゃれ",
+        user_id: users[0].id,
+        is_draft: 1
+      },
+      {
+        title: "今日のデクパージュ練習",
+        explaination: "今日はオレンジのデクパージュを練習したよ。\r\n\r\nもっと上手く素早く出来るようになりたいな！練習時間もっと取らなきゃ！\r\n\r\n#フルーツデクパージュ#サービス技術#勉強",
+        user_id: users[1].id,
+        is_draft: 1,
+      },
+      {
+        title: "高級フレンチで堪能",
+        explaination: "ずっと行ってみたかった日本のフレンチレストランに行ったよ。\r\n\r\nチーズの種類が沢山あって料理もすごく繊細で美味しかった！\r\n\r\n#東京フレンチ#gastronomy#チーズ",
+        user_id: users[2].id,
+        is_draft: 1
+      },
+      {
+        title: "ソムリエナイフ欲しい",
+        explaination: "ソムリエナイフ壊れたから新しいものを買おうと思ってるんだ。\r\n\r\n候補はエリック・ボーマール氏のモデルのソムリエナイフだよ！！",
+        user_id: users[0].id,
+        is_draft: 0
+      }
+    ]
+    
+  ranges = [
+      [*1..3],#[1, 2, 3]
+      [*1..1],#[1]
+      [],     #[]
+      [*2..3] #[2, 3]
+    ]
+    
+  posts_attributes.each_with_index do |post_attributes, index|
+    post = Post.create!(post_attributes)
+    if ranges[index].size != 0
+      file_names = ranges[index].map{|i| "sample-post#{i}.jpg"}
+      file_names.each{|file_name| post.images.attach(io: File.open("#{Rails.root}/db/fixtures/#{file_name}"), filename: file_name); sleep(2)}
+    end
+  end  
+=begin
     #投稿の作成
   Post.create!(
     [
@@ -80,7 +122,7 @@
       }
     ]
   )
-
+=end
 
 
     #タグ作成
