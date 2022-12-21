@@ -55,10 +55,13 @@ class Public::UsersController < ApplicationController
   def likes
     @user = User.find(params[:id])
     # いいねに紐づけられた投稿のレコードをすべて持ってくる
-    likes = Like.where(user_id: @user.id).pluck(:post_id)
-    @like_posts = Post.find(likes)
-
+    likes = @user.likes.pluck(:post_id)
+    # アソシエーションで定義している為使える
+    @like_posts = Post.where(id: likes).page(params[:page]).per(6)
   end
+
+
+
   # チャットルームの一覧ページ用
   def chat_rooms
     user_rooms = current_user.rooms

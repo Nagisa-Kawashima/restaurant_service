@@ -28,14 +28,6 @@
             <%= image_tag 'no_post_image.jpg', size: '300x300' %>
           </div>
           <% end %>
-
-
-
-
-
-
-
-
      <% end %>
      <p><strong><%= post.title %></strong></p>
      <p class="float"><i class="far fa-comment-alt"></i><%= link_to " #{post.post_comments.count} ", post_path(post.id) %></p>

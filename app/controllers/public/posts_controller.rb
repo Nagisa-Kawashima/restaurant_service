@@ -77,7 +77,7 @@ class Public::PostsController < ApplicationController
 
   # 下書き投稿のページ
   def draft_index
-    @posts = current_user.posts.draft.reverse_order.page(params[:page]).per(10)
+    @posts = current_user.posts.draft.reverse_order.page(params[:page]).per(6)
 
   end
 

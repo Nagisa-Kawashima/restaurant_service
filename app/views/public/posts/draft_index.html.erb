@@ -2,13 +2,13 @@
   <div class="row">
     <div class="col-12">
       <h5 class="text-center col-md-5 top1 mx-auto my-4"><i class="fas fa-lock"></i> 下書き投稿(<%= current_user.posts.draft.count %>件)</h5>
-      <div class="post_list mb-3  d-flex flex-wrap d-grid gap-5 justify-content-center color">
+      <div class="post_list mb-3 d-flex flex-wrap d-grid gap-5 justify-content-center color">
         <% if @posts.exists? %>
         <% @posts.each do |post| %>
           <div class="post shadow-lg text-center">
             <%= link_to post_path(post),data: {"turbolinks" => false}  do %>
               <% if post.images.attached? %>
-              <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel" style="width: 300px; height: 300px;">
+              <div id="carouselExampleInterval_<%= post.id %>" class="carousel slide" data-bs-ride="carousel" style="width: 300px; height: 300px;">
                 <div class="carousel-inner">
                   <% post.images.each_with_index do |image, i| %>
                     <div class="carousel-item <%= "active" if i == 0 %>" data-bs-interval="5000">
@@ -17,13 +17,9 @@
                   <% end %>
                 </div>
                 <% if post.images.size > 1 %>
-                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval_<%= post.id %>" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
                   </button>
                 <% end %>
               </div>
@@ -51,4 +47,3 @@
 
 
 
- <%#= image_tag post.get_image,class: "image_index" , size: '300x300'%>

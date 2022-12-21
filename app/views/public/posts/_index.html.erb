@@ -1,26 +1,22 @@
 <div class="post_list col-12 d-flex flex-wrap d-grid gap-5 justify-content-center">
   <% posts.each do |post| %>
     <% if post.user.is_deleted == false %>
-      <div class="post shadow-lg text-center color">
+      <div class="post shadow text-center">
       <%= link_to post_path(post.id),data: {"turbolinks" => false} do %>
-        <div class="col-12 mx-auto text-center">
+        <div class="col-12 mx-auto text-center background pb-1">
           <% if post.images.attached? %>
-            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel" style="width: 300px; height: 300px;">
+            <div id="carouselExampleInterval_<%= post.id %>" class="carousel slide" data-bs-ride="carousel" style="width: 300px; height: 300px;">
               <div class="carousel-inner">
                 <% post.images.each_with_index do |image, i| %>
                   <div class="carousel-item <%= "active" if i == 0 %>" data-bs-interval="5000">
-                    <%= image_tag image, class: "post_image ", size: '300x300'%>
+                    <%= image_tag image, class: "post_image color", size: '300x300'%>
                   </div>
                 <% end %>
               </div>
               <% if post.images.size > 1 %>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval_<%= post.id %>" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
                 </button>
               <% end %>
             </div>
@@ -37,7 +33,7 @@
           <p class="float"><i class="far fa-comment-alt"></i><%= link_to " #{post.post_comments.count} ", post_path(post.id) %>
             &nbsp;<i class="far fa-heart"></i><%= link_to " #{post.likes.count} ", post_path(post.id) %>
           </p>
-          <p class="small"><%= l post.created_at %></p>
+          <p class="small m-0"><%= l post.created_at %></p>
         </div>
       <% end %>
       </div>

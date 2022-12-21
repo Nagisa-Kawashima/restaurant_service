@@ -8,20 +8,20 @@
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner nature">
-          <div class="carousel-item active text-center" data-bs-interval="10000">
+          <div class="carousel-item active text-center" data-bs-interval="5000">
             <%= image_tag 'topimage1.jpg', class: 'top_img h-50 d-inline-block ' %>
             <div class="carousel-caption d-md-block col-md-4 mx-auto" style="opacity: 0.8;">
               <h5 class="rounded-3 py-3" style="background-color:rgba(0,0,0,0.8); color:#FFF;">ようこそResutaurant_serviceへ！</h5>
               <p class="rounded-3 py-3" style="background-color:rgba(0,0,0,0.8); color:#FFF;">あなたの日々の仕事の体験を共有しましょう！</p>
             </div>
           </div>
-          <div class="carousel-item text-center" data-bs-interval="10000">
+          <div class="carousel-item text-center" data-bs-interval="5000">
             <%= image_tag 'topimage2.jpg', class: 'top_img  h-50 d-inline-block' %>
             <div class="carousel-caption d-md-block col-md-4 mx-auto">
               <p class="rounded-3 py-2 px-3" style="background-color:rgba(0,0,0,0.8); color:#FFF;">Resutaurant_serviceではあなたの勉強の記録や<br>あなたの悩みも共有することが出来ます！</p>
             </div>
           </div>
-          <div class="carousel-item text-center" data-bs-interval="10000">
+          <div class="carousel-item text-center" data-bs-interval="5000">
             <%= image_tag 'topimage3.jpg', class: 'top_img  h-50 d-inline-block' %>
             <div class="carousel-caption d-md-block col-md-4 mx-auto">
               <p class="rounded-3 p-3 mb-3" style="background-color:rgba(0,0,0,0.6); color:#FFF;">同じ志を持つユーザーと仲間になりましょう！<br>検索ではユーザーの名前だけでなく国籍(２桁の国籍コード)でも検索できます！<brどんな内容が投稿されているのか、投稿内容も興味のあるワードで検索してみましょう！></p>
@@ -33,13 +33,9 @@
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
       </div>
     </div>
-      <div class="top_list col-12  text-center d-flex justify-content-evenly my-5 mx-auto">
+      <div class="top_list col-12 d-flex flex-wrap d-grid gap-5 justify-content-center text-center mt-4 mb-5">
         <div class="top1 col-md-3 col-sm-6 p-3 float">
           <p><b>初めてご利用の方</b><br>新規登録お願いします</p>
           <%= link_to '新規登録', new_user_registration_path, class: "btn btn-outline-success" %>
@@ -56,17 +52,17 @@
       </div>
 
       <!--新着投稿欄-->
-      <div class="col-12 w-100 yoko">
+      <div class="col-12">
         <div class="icon_image shadow"></div>
       </div>
-      <div class="top_font col-md-5 text-center fs-1 fst-italic my-5 mx-auto">latest Posts</div>
-      <div class="newpost mb-5 mx-auto text-center">
+      <div class="top_font col-md-5 text-center fs-1 fst-italic mb-5 mx-auto">latest Posts</div>
+      <div class="newpost  col-md-10 mx-auto text-center background pb-2 pt-4 shadow">
         <% @new_posts.each do |new_posts| %>
           <div class="newpost_flame d-inline-block color">
             <%= link_to posts_path do %>
               <% if new_posts.images.attached? %>
               <div>
-                <div id="carouselExampleInterval" class="carousel slide " data-bs-ride="carousel" style="width: 200px; height: 200px;">
+                <div id="carouselExampleInterval_<%= new_posts.id %>" class="carousel slide " data-bs-ride="carousel" style="width: 200px; height: 200px;">
                   <div class="carousel-inner">
                     <% new_posts.images.each_with_index do |image, i| %>
                       <div class="carousel-item <%= "active" if i == 0 %> " data-bs-interval="5000">
@@ -75,11 +71,11 @@
                     <% end %>
                   </div>
                   <% if new_posts.images.size > 1 %>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval_<%= new_posts.id %>" data-bs-slide="prev">
                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                       <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                     <button class="carousel-control-next-none" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
                       <span class="carousel-control-next-icon" aria-hidden="true"></span>
                       <span class="visually-hidden">Next</span>
                     </button>
@@ -104,16 +100,4 @@
 
 
 
-
-
- <!--<#% if new_posts.images.attached? %>-->
- <!--             <div style="width: 700px;">-->
- <!--               <p><strong>Image:</strong></p>-->
- <!--               <#% #new_posts.images.each do |image| %>-->
- <!--                 <#%= image_tag image, class: "post_image my-3  shadow-lg", size: '300x300'%>-->
- <!--               <#% end %>-->
- <!--             </div>-->
- <!--             <#% else %>-->
- <!--                <#%= image_tag 'no_post_image.jpg' %>-->
- <!--             <#% end %>-->
 

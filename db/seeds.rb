@@ -39,7 +39,7 @@
         introduction: "チリワインは美味しいのでいつも飲んでます！よろしくお願い致します。"}
     ]
   )
-  
+
   posts_attributes = [
       {
         title: "今日のワイン",
@@ -66,21 +66,21 @@
         is_draft: 0
       }
     ]
-    
+
   ranges = [
       [*1..3],#[1, 2, 3]
       [*1..1],#[1]
       [],     #[]
       [*2..3] #[2, 3]
     ]
-    
+
   posts_attributes.each_with_index do |post_attributes, index|
     post = Post.create!(post_attributes)
     if ranges[index].size != 0
       file_names = ranges[index].map{|i| "sample-post#{i}.jpg"}
       file_names.each{|file_name| post.images.attach(io: File.open("#{Rails.root}/db/fixtures/#{file_name}"), filename: file_name); sleep(2)}
     end
-  end  
+  end
 =begin
     #投稿の作成
   Post.create!(
