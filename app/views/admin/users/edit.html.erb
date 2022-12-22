@@ -3,8 +3,16 @@
     <div class='col-md-8 mx-auto text-center'>
       <h4 class="my-4 col-md-5 top1 mx-auto"><i class="fas fa-user-edit"></i>ユーザー編集</h4>
       <div  class="border p-5 shadow background">
+        <div class="d-flex align-items-center">
+          <div class="plofile_image col-md-4 col-sm-4">
+          <%= image_tag @user.get_profile_image,class: "user_image", size: '200x200'%>
+          </div>
+          <div class="col-md-4 col-sm-7">
+             <%= link_to 'プロフィール画像を削除', admin_user_path(@user), method: :delete, data: { confirm: '本当に削除してもよろしいですか？'}, class: 'btn btn-danger' %>
+          </div>
+        </div>
         <%= form_with model: @user,url: admin_user_path(@user), method: :PATCH do |f|  %>
-        <div class="post_form text-center mt-5">
+        <div class="post_form text-center mt-3">
           <h5><%= f.label :"名前" %></h5>
           <%= f.text_field :name, class: 'form-control' %> <br>
           <h5><%= f.label :email,"メールアドレス" %></h5>

@@ -45,7 +45,7 @@ Rails.application.routes.draw do
     get "user/unsubscribe" => "users#unsubscribe"
     #ユーザ退会処理
     patch "user/withdraw" => "users#withdraw"
-    
+
     # 投稿機能
     resources :posts do
       #コメント機能
@@ -72,7 +72,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     # ユーザーの管理画面
-    resources :users, except: [:new, :create, :destroy]do
+    resources :users, except: [:new, :create]do
       # 一人のユーザーに紐づく投稿
       resources :posts, only: [:index, :show, :destroy]
       # 一人のユーザーに紐づくコメント

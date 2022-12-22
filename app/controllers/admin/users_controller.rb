@@ -10,6 +10,15 @@ class Admin::UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
   end
+
+  def destroy
+    user = User.find(params[:id])
+    image = user.profile_image
+    image.destroy
+    redirect_to request.referer, notice: "ユーザーのプロフィール画像を削除しました。"
+
+  end
+
   def update
     user = User.find(params[:id])
     user.update(user_params)

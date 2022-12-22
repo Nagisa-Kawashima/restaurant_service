@@ -14,7 +14,7 @@ class Public::PostsController < ApplicationController
       if @post.save
         redirect_to post_path(@post), notice: ((@post.is_draft == "draft") ? "マイページの下書き投稿に保存しました。" : "投稿しました。")
       else
-       redirect_to new_post_path(@post), alert: "入力内容をご確認ください。"
+      redirect_to new_post_path(@post), alert: "入力内容をご確認ください。"
       end
     end
   end

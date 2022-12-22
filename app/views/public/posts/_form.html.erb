@@ -1,9 +1,9 @@
 <div class="col-md-9 mx-auto background shadow p-5 text-center mb-5">
   <p>（タイトル・本文は必須入力）</p>
+  <p>画像(5MBまで,拡張子はjpeg/gif/pngのみです)</p>
 <%= form_with model: post do |f| %>
   <div class="mb-3"><i class="fas fa-camera"></i> <%= f.label :images,"画像を選択する" ,  class: "form-label", for: "formFileMultiple"%></div>
   <%= f.file_field :images , multiple: true, class: 'form-control', id: "formFileMultiple"%>
-
   <% if post.images.attached? %>
     <p class="my-2">選択済みの画像（削除する画像にチェックをつけてください）</p>
     <div  class="d-flex flex-wrap">
@@ -17,8 +17,6 @@
     <% end %>
     </div>
   <% end %>
-
-
   <div id="new-image"></div>
   <div class="my-3"><i class="fas fa-tag"></i> <%= f.label :title,"タイトル" %></div>
   <%= f.text_field :title, placeholder: "タイトルを入力", class: 'form-control' %><br>
