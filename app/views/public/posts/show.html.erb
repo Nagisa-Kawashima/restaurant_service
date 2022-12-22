@@ -2,7 +2,7 @@
   <div class="row">
     <!--投稿詳細-->
     <%= render 'show', post: @post, user_post: @user %>
-    <div class ="col-md-9  col-sm-12 mx-auto">
+    <div class ="col-md-10  col-sm-12 mx-auto">
         <!--コメント表示-->
       <div id="home_pagenate" class="comments-area background shadow my-2 p-4 text-center mx-auto pagenation_block">
           <%= render 'public/post_comments/index', post: @post %>

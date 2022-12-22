@@ -90,7 +90,7 @@ class User < ApplicationRecord
   #検索機能　完全一致で検索する
   def self.search(search)
     if search != nil
-      User.where('name LIKE(?) OR country_code LIKE(?)' , "%#{search}%", "%#{search}%")
+      User.where('name LIKE(?) OR country_code LIKE(?) OR introduction LIKE(?)' , "%#{search}%", "%#{search}%",  "%#{search}%")
     else
       User.all
     end

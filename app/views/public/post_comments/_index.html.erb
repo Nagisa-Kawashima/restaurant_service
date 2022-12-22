@@ -3,8 +3,10 @@
   <% post.post_comments.each do |comment| %>
   <div class="d-flex justify-content-center align-items-center">
      <div>
-      <%= comment.comment %>&ensp;
-      <%= comment.created_at.strftime('%Y/%m/%d') %>&ensp;
+       <div>
+        <%= comment.comment %>&ensp;
+        <%= comment.created_at.strftime('%Y/%m/%d') %>&ensp;
+       </div>
     </div>
     <div>
       <%= link_to user_path(comment.user),class: "link" do  %>

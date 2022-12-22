@@ -56,10 +56,6 @@ class Public::PostsController < ApplicationController
     else
       redirect_to posts_path, alert: "本人以外更新できません。"
     end
-
-
-
-
   end
 
 
