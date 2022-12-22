@@ -70,6 +70,7 @@ gem 'rubocop-rspec'
 gem 'kaminari','~> 1.2.1'
 gem 'bootstrap5-kaminari-views', '~> 0.0.1'
 gem 'carmen-rails', :git => 'https://github.com/Studiosity/carmen-rails.git', :branch => 'master'
+gem 'whenever', require: false
 
 group :production do
   gem 'mysql2'
