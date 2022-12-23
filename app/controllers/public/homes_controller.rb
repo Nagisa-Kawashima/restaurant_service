@@ -5,4 +5,9 @@ class Public::HomesController < ApplicationController
 
   def about
   end
+
+
+  def confirm
+  end
+
 end

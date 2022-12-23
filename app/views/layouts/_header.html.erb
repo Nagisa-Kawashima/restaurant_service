@@ -65,6 +65,11 @@
         <!--ログインしていない場合-->
         <% else %>
           <li>
+            <%= link_to confirm_path, class: 'nav-link text-light miniCon float' do %>
+              <i class="fas fa-question-circle"></i> FAQ
+            <% end %>
+          </li>
+          <li>
             <%= link_to about_path, class: 'nav-link text-light miniCon float' do %>
               <i class="fa-solid fa-leaf"></i> ABOUT
             <% end %>
@@ -96,7 +101,7 @@
 <div class="overlay">
   <span id="close"><i class="fa-solid fa-rectangle-xmark fa-2x"></i></span>
   <nav>
-    <ul>
+    <ul class="p-0 my-5">
       <% if user_signed_in? %>
       <!--会員ページにてログインした場合-->
       <li>
@@ -149,6 +154,11 @@
       </li>
         <!--ログインしていない場合-->
       <% else %>
+      <li>
+        <%= link_to confirm_path, class: 'nav-link text-light miniCon float' do %>
+          <i class="fas fa-question-circle"></i> FAQ
+        <% end %>
+      </li>
       <li>
         <%= link_to about_path, class: 'nav-link text-light miniCon float' do %>
           <i class="fa-solid fa-leaf"></i> ABOUT

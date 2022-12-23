@@ -61,10 +61,25 @@
             </div>
         </div>
       </section>
-      <div>
-        <p class="col-md-6 offset-md-3 text-center">本アプリに会員登録すると、<br>スムーズにお問い合わせ頂けます。</p>
+      <div id="language-wrapper">
+        <p class="col-md-6 offset-md-3 text-center text my-0">本アプリに会員登録すると、<br>スムーズにお問い合わせ頂けます。</p>
+        <div class="d-grid gap-2 col-6 mx-auto my-5  fwari "> <%= link_to '今すぐ始めよう', new_user_registration_path, class: "btn btn-outline-success" %></div>
       </div>
-      <div class="d-grid gap-2 col-6 mx-auto my-5 miniCon fwari"> <%= link_to '今すぐ始めよう', new_user_registration_path, class: "btn btn-outline-success" %></div>
     <% end %>
   </div>
 </div>
+
+
+
+<script>
+  $(function() {
+    $('#language-wrapper').hover(
+      function() {
+        $('.text').fadeIn();
+      },
+      function() {
+        $('.text').fadeOut();
+      }
+    );
+  });
+</script>

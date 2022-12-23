@@ -170,6 +170,40 @@ a {
   background-color:rgba(0,0,0,0.4);
   color:#FFF;
 }
+.faq {
+   background-color: rgba(186, 172, 186, 0.3);
+}
+
+
+.faq-list-item {
+  margin:10px;
+  border-bottom:1px solid #ccc;
+  position:relative;
+  cursor:pointer;
+  text-align: left;
+}
+
+.faq-list-item h3 {
+  font-size: 14px;
+}
+
+.faq-list-item span {
+  position:absolute;
+  top:0;
+  right:5px;
+  color:#ccc;
+  font-size:13px;
+}
+
+.answer {
+  font-size: 12px;
+  padding: 5px 0px;
+  margin-bottom: 15px;
+  display:none;
+
+}
+
+
 
 #profile {
     background-color: white;
@@ -189,6 +223,9 @@ a {
     background-size:  cover;
     background-position: center;
     border-radius: 50%;
+}
+.text {
+  display: none;
 }
 
 .description-title {

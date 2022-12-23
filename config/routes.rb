@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     # top ページとaboutページ
     root to:"homes#top"
     get "about" => "homes#about"
+    get "confirm" => "homes#confirm"
     resources :users, only: [:show,:index, :edit, :update] do
       # フォロー機能
       resource :relationships, only: [:create, :destroy]
