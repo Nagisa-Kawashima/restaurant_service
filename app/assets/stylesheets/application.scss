@@ -282,8 +282,8 @@ a {
 /*チャット一覧ページ*/
 .user_image{
   width: 100%;
-  max-width: 150px;
-  height: 150px;
+  max-width: 100px;
+  height: 100px;
   border-radius: 50%;
 }
 /*チャットページ*/
@@ -367,7 +367,7 @@ a {
 
 }
 .pagination span {
-  margin-right: 30px;
+  margin-right: 10px;
 
 }
 .pagination span a {

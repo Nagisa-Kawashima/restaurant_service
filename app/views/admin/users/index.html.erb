@@ -8,9 +8,7 @@
             <th>名前</th>
             <th width="30%">メールアドレス</th>
             <th>国名</th>
-            <th width="20%">ユーザーステータス</th>
-            <th width="10%"></th>
-            <th width="10%"></th>
+            <th width="30%">ユーザーステータス</th>
           </tr>
         </thead>
         <tbody>
@@ -25,8 +23,11 @@
                   <p class="text-secondary font-weight-bold">退会</p>
                 <% end %>
             </td>
-            <td><%= link_to '編集', edit_admin_user_path(user), class: "btn btn-block btn-outline-dark" %></td>
-            <td> <%= link_to '詳細', admin_user_path(user), class: "btn btn-block btn-outline-dark" %></td>
+
+          </tr>
+          <tr>
+            <td><%= link_to '編集', edit_admin_user_path(user), class: "btn btn-outline-dark" %></td>
+            <td> <%= link_to '詳細', admin_user_path(user), class: "btn btn-outline-dark" %></td>
           </tr>
           <% end %>
         </tbody>

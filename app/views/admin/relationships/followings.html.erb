@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row d-flex justify-content-center">
-    <div class="col-10">
+  <div class="row">
+    <div class="col-md-10 col-sm-11 mx-auto">
       <h4 class="my-4 text-center col-md-7 top1 mx-auto my-4"><i class="fas fa-user-friends"></i><%= @user.name %> さんがフォローしている人(<%= @users.count %>人)</h4>
       <% if @users.exists? %>
       <% @users.each do |user| %>
@@ -8,20 +8,21 @@
         <table class="table background shadow text-center align-middle">
           <thead>
             <tr class="text-center">
-              <th>画像</th>
+              <th width="20%">画像</th>
               <th>名前</th>
               <th>フォロー</th>
               <th>フォロワー</th>
-              <th></th>
             </tr>
           </thead>
           <tbody>
             <tr class="text-center">
-              <td> <%= image_tag user.get_profile_image,class: "comment-user-image", size: '130x130' %></td>
+              <td> <%= image_tag user.get_profile_image, size: '120x120' %></td>
               <td><%= user.name %></td>
               <td><%= user.followings.count %></td>
               <td><%= user.followers.count %></td>
-              <td><%= link_to 'ユーザー詳細ページへ戻る', admin_user_path(user), class: 'btn btn-primary' %></td>
+            <tr>
+               <td><%= link_to 'ユーザー詳細ページへ', admin_user_path(user), class: 'btn btn-primary px-3' %></td>
+            </tr>
             </tr>
           </tbody>
         </table>
