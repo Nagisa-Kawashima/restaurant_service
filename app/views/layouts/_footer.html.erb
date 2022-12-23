@@ -1,8 +1,30 @@
 <footer class="pt-3 bg-dark">
     <div class="text-center">
-        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" class="text-light"><i class="fab fa-twitter me-3 float"></i></a>
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="text-light"><i class="fab fa-instagram fa-lg me-3 float"></i></a>
-        <a href="https://ja-jp.facebook.com/" target="_blank" rel="noopener noreferrer" class="text-light"><i class="fab fa-facebook me-3 float"></i></a>
+        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" class="text-light social-icon"><i class="fab fa-twitter me-3"></i></a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="text-light social-icon"><i class="fab fa-instagram fa-lg me-3"></i></a>
+        <a href="https://ja-jp.facebook.com/" target="_blank" rel="noopener noreferrer" class="text-light social-icon"><i class="fab fa-facebook me-3 float"></i></a>
     </div>
     <p class="text-white text-center mb-0 py-3">&copy;RESUTAURANT SERVISE</p>
 </footer>
+
+<script>
+$(function(){
+
+    $('.social-icon').hover (
+      function() {
+        $(this).animate({
+          'font-size':'30px'
+        },300);
+      },
+    //   離れた後のサイズ
+      function() {
+        $(this).animate({
+          'font-size':'17px'
+        },300);
+      }
+
+    );
+
+});
+</script>
+
