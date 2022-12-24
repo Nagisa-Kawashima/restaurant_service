@@ -1,8 +1,8 @@
 <div class ="container" >
   <div class="row">
-    <div class="col-md-12 ">
+    <div class="col-md-12">
       <h4 class="col-md-6 top1 mx-auto my-4 text-center"><i class="far fa-comment-alt"></i>　<b><%=@user.name%></b> さんのコメント一覧(<%= @user.post_comments.count %>件)</h4>
-      <div class="col-md-9 mx-auto background shadow  my-4 p-5 ">
+      <div class="col-md-9 mx-auto background shadow my-5 p-5 ">
       <% @comments.each do |comment| %>
         <div class="d-flex my-2">
           <div><%= comment.comment %><br><%= comment.created_at %></div>
