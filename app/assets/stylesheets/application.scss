@@ -105,7 +105,6 @@ a {
 }
 
 
-
 .top1 {
   position: relative;
   padding: 0.25em 1em;
@@ -540,4 +539,12 @@ span.page.current {
 	word-break: break-all;
 	word-wrap: break-all;
   }
+  .profile-group {
+    display: block;
+    padding: 30px 0px;
+  }
+
+  .description-title:first-child {
+    margin-top: 20px;
+}
 }
