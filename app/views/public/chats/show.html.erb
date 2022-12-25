@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-9 col-sm-11 background shadow mt-5 px-5 mx-auto">
+    <div class="col-md-9 col-sm-11 background shadow my-5 px-5 mx-auto">
       <h5 class="text-center mt-5 overflow-auto"><%= image_tag @user.get_profile_image, class: "user_image"%>&ensp;<%= @user.name %>さんとのチャットルーム <i class="far fa-comment"></i></h5>
       <div>
         <%= form_with model: @chat do |f| %>
