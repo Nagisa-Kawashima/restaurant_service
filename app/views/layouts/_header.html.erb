@@ -70,6 +70,11 @@
             <% end %>
           </li>
           <li>
+            <%= link_to news_path, class: 'nav-link text-light miniCon float' do %>
+              <i class="fa-solid fa-bell"></i> NEWS
+            <% end %>
+          </li>
+          <li>
             <%= link_to about_path, class: 'nav-link text-light float' do %>
               <i class="fa-solid fa-leaf"></i> ABOUT
             <% end %>
@@ -157,6 +162,11 @@
       <li>
         <%= link_to confirm_path, class: 'nav-link text-light miniCon float' do %>
           <i class="fas fa-question-circle"></i> FAQ
+        <% end %>
+      </li>
+      <li>
+        <%= link_to news_path, class: 'nav-link text-light miniCon float' do %>
+          <i class="fa-solid fa-bell"></i> NEWS
         <% end %>
       </li>
       <li>

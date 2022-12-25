@@ -10,4 +10,7 @@ class Public::HomesController < ApplicationController
   def confirm
   end
 
+  def news
+  end
+
 end

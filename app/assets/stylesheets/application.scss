@@ -104,6 +104,9 @@ a {
   background-position: center;
 }
 
+.bottom {
+  border-bottom: 5px solid #fff;
+}
 
 .top1 {
   position: relative;
@@ -172,7 +175,19 @@ a {
 .faq {
    background-color: rgba(186, 172, 186, 0.3);
 }
+.news {
+  display: flex;
+}
 
+.book_image {
+  background-image: image-url("book.jpg");
+  width: 300px;
+  height: 200px;
+  margin-left:  10px;
+  background-size:  cover;
+  background-position: center;
+
+}
 
 .faq-list-item {
   margin:10px;
@@ -201,9 +216,6 @@ a {
   display:none;
 
 }
-
-
-
 #profile {
     background-color: white;
     text-align: center;
@@ -506,6 +518,10 @@ span.page.current {
   .overlay.show li:nth-child(5) {
     transition-delay: .5s;
   }
+  .overlay.show li:nth-child(6) {
+    transition-delay: .6s;
+  }
+
 
 
   .overlay #close {
@@ -546,5 +562,14 @@ span.page.current {
 
   .description-title:first-child {
     margin-top: 20px;
-}
+  }
+
+  .news {
+  display: block;
+
+  }
+
+  .book_image {
+    margin: 0 auto;
+  }
 }

@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     root to:"homes#top"
     get "about" => "homes#about"
     get "confirm" => "homes#confirm"
+    get "news" => "homes#news"
     resources :users, only: [:show,:index, :edit, :update] do
       # フォロー機能
       resource :relationships, only: [:create, :destroy]
