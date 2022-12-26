@@ -304,6 +304,7 @@ a {
 }
 
 
+
 /*// メッセージの装飾*/
 .my-message p {
   display: inline-block;
@@ -406,8 +407,6 @@ span.page.current {
   animation: fuwafuwa  7s infinite;
 
 }
-
-
 @keyframes fuwafuwa {
   0% {
     transform: translateX(-300px);
@@ -566,9 +565,7 @@ span.page.current {
 
   .news {
   display: block;
-
   }
-
   .book_image {
     margin: 0 auto;
   }

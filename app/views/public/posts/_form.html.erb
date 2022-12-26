@@ -4,7 +4,7 @@
   <div class="col-md-9 mx-auto">
     <%= form_with model: post do |f| %>
     <div class="mb-3"><i class="fas fa-camera"></i> <%= f.label :images,"画像を選択する" %></div>
-    <%= f.file_field :images , multiple: true, class: 'form-control'%>
+    <%= f.file_field :images , multiple: true, class: 'form-control', onchange: 'loadImage(this);' %>
     <% if post.images.attached? %>
       <p class="my-2">選択済みの画像（削除する画像にチェックをつけてください）</p>
       <div  class="d-flex flex-wrap">
@@ -18,7 +18,7 @@
       <% end %>
       </div>
     <% end %>
-    <div id="new-image"></div>
+    <div id="preview" class="my-3"></div>
     <div class="my-3"><i class="fas fa-tag"></i> <%= f.label :title,"タイトル" %></div>
     <%= f.text_field :title, placeholder: "タイトルを入力", class: 'form-control' %><br>
     <div class="mb-3"><i class="far fa-file-alt"></i> <%= f.label :explaination,"本文 (#をつけるとタグになります）" %></div>
@@ -47,5 +47,16 @@
     <% end %>
   </div>
 </div>
-
-
+<script>
+  function loadImage(obj)
+  {
+  	document.getElementById('preview').innerHTML = '<p><i class="fa-solid fa-eye"></i>プレビュー</p>';
+  	for (i = 0; i < obj.files.length; i++) {
+  		var fileReader = new FileReader();
+  		fileReader.onload = (function (e) {
+  			document.getElementById('preview').innerHTML += '<img class="img-fluid mb-2" src="' + e.target.result + '">';
+  		});
+  		fileReader.readAsDataURL(obj.files[i]);
+  	}
+  }
+</script>
