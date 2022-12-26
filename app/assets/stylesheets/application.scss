@@ -458,9 +458,6 @@ span.page.current {
     position:absolute;
     top:15%; left:0%;
   }
-
-
-
   .overlay {
     height: 100%;
     position: fixed;
@@ -567,6 +564,9 @@ span.page.current {
   display: block;
   }
   .book_image {
+    margin: 0 auto;
+  }
+  .book_p {
     margin: 0 auto;
   }
 }
