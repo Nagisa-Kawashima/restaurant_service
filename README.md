@@ -1,9 +1,8 @@
-# <アプリ名　restaurant_service>
-[PFサイト](https://resutaurant-service.com)
+## <アプリ名　restaurant_service>
+[PFサイトはこちら](https://resutaurant-service.com)
 ***
 
 ## サイト概要
-***
 ### サイトテーマ
 レストランで働いているサービス人のためのコミュニティサイト
 
@@ -36,7 +35,7 @@
 - [ワイヤーフレーム](https://drive.google.com/file/d/1Izt9mRuj5k1zyguUKFRsKPVthulXuJKc/view?usp=share_link)
 - [テスト仕様書](https://docs.google.com/spreadsheets/d/1hFVo70ClMzJ48r6kgk-wjqGr1gm9LQGS/edit?usp=sharing&ouid=105482165630883427988&rtpof=true&sd=true)
 - [WBSスケジュール](https://docs.google.com/spreadsheets/d/1yOSA5QnGJMHSqYWwC38_M738kOg0XA6DaZMHgmQugAc/edit?usp=sharing)
-- [AWS環境練習](https://drive.google.com/file/d/1xCc3psX-C1FSVqBXS41pCM3cMEFmMyv0/view?usp=share_link)
+- [AWS環境構築練習](https://drive.google.com/file/d/1xCc3psX-C1FSVqBXS41pCM3cMEFmMyv0/view?usp=share_link)
 
 ***
 
