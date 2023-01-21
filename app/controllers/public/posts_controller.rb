@@ -1,6 +1,7 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_current_user, only: [:edit, :update,:destroy]
+  before_action :ensure_current_user, only: [:edit, :update,:destroy, :draft_index
+  ]
 
   def new
     @post = Post.new
@@ -74,7 +75,6 @@ class Public::PostsController < ApplicationController
   # 下書き投稿のページ
   def draft_index
     @posts = current_user.posts.draft.reverse_order.page(params[:page]).per(6)
-
   end
 
   # タグ検索の一覧ページ
@@ -83,9 +83,6 @@ class Public::PostsController < ApplicationController
     @tag = Tag.find_by(name: params[:name].downcase)
     @post = @tag.posts.page(params[:page])
   end
-
-
-
 
   private
 
