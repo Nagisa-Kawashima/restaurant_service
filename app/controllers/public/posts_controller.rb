@@ -1,7 +1,6 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_current_user, only: [:edit, :update,:destroy, :draft_index
-  ]
+  before_action :ensure_current_user, only: [:edit, :update,:destroy]
 
   def new
     @post = Post.new
@@ -28,13 +27,18 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @comment = PostComment.new
-    @user = @post.user
+    if @post.is_draft == 'draft' && @post.user_id != current_user.id
+      redirect_to posts_path
+    else
+      @comment = PostComment.new
+      @user = @post.user
+    end
   end
 
   def edit
     @post = Post.find(params[:id])
     @tags = Tag.last(5)
+    redirect_to posts_path
   end
 
   def update
@@ -42,7 +46,7 @@ class Public::PostsController < ApplicationController
      #添付画像を個別に削除
     # 削除対象の画像があるかを確認するためにif文で存在確認
     if params[:post][:image_ids]
-     params[:post][:image_ids].each do |image_id|
+        params[:post][:image_ids].each do |image_id|
        image = @post.images.find(image_id)
        image.purge
      end
@@ -74,7 +78,10 @@ class Public::PostsController < ApplicationController
 
   # 下書き投稿のページ
   def draft_index
-    @posts = current_user.posts.draft.reverse_order.page(params[:page]).per(6)
+    #下書きの投稿であるかどうか
+    if Post.is_drafts.key(0)
+      @posts = current_user.posts.draft.reverse_order.page(params[:page]).per(6)
+    end
   end
 
   # タグ検索の一覧ページ

@@ -36,8 +36,12 @@ class Public::ChatsController < ApplicationController
 
   def destroy
     chat = Chat.find(params[:id])
-    chat.destroy
-    redirect_to request.referer, notice: "メッセージを削除しました。"
+    if chat.user_id == current_user.id
+      chat.destroy
+      redirect_to request.referer, notice: "メッセージを削除しました。"
+    else
+      redirect_to post_path
+    end
   end
 
   private

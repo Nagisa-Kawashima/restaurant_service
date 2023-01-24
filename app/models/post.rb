@@ -17,6 +17,7 @@ class Post < ApplicationRecord
 
 
 
+
   #下書き機能  公開中 /published,下書き  /draft
   enum is_draft: { draft: 0, published: 1 }
 
@@ -112,6 +113,11 @@ class Post < ApplicationRecord
       Post.all
     end
   end
+
+
+
+  private
+
 
 
 end
