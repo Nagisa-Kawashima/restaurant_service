@@ -113,13 +113,6 @@ class Post < ApplicationRecord
       Post.all
     end
   end
-
-
-
-  private
-
-
-
 end
 
 
