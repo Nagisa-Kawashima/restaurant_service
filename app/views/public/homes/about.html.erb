@@ -1,19 +1,22 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12 mx-auto d-flex justify-content-center">
-      <div class="about w-100 mt-2">
-        <div class="about_p col-md-6 mx-auto px-3 py-3">
-          <p>
-            Resutaurant_serviceについて
-          </p>
-          <p> レストランで働いているサービス人のためのコミュニティサイトです。</p>
-          <p>
-            コミュニティサイトを選んだのは、同業種の人間と繋がることで、勉強しているところや、働く上での悩みや楽しさを共有することが出来、それがモチベーションに繋がると考えたからです。<br>
-          少しでも飲食業界で働いている方々の助けになるものであれば幸いです！
-          </p>
+    <section>
+      <div class="col-md-12 mx-auto d-flex justify-content-center">
+        <div class="about w-100 mt-2">
+          <div class="about_p col-md-6 mx-auto px-3 py-3">
+            <p>
+              Resutaurant_serviceについて
+            </p>
+            <p> レストランで働いているサービス人のためのコミュニティサイトです。</p>
+            <p>
+              コミュニティサイトを選んだのは、同業種の人間と繋がることで、勉強しているところや、働く上での悩みや楽しさを共有することが出来、それがモチベーションに繋がると考えたからです。<br>
+            少しでも飲食業界で働いている方々の助けになるものであれば幸いです！
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+
     <section id="profile">
       <div class="container">
         <h2 class="heading">Profile</h2>
@@ -84,4 +87,43 @@
 
     $('.about_p').hide().fadeIn(5000);
   });
+
+
+
+</script>
+<script>
+
+{
+  const targets = document.querySelectorAll('section');
+
+  function callback(entries, obs) {
+    console.log(entries);
+
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        return;
+      }
+//一度だけ発火
+      entry.target.classList.add('appear');
+      obs.unobserve(entry.target);
+    });
+  }
+
+  const options = {
+    threshold: 0.8,
+    // root: null,
+    // rootMargin: '-30% 0px', // viewportの中心にきたら発火
+    // threshold: 1
+  };
+
+  const observer = new IntersectionObserver(callback, options);
+
+  targets.forEach(target => {
+    observer.observe(target);
+  });
+}
+
+
+
+
 </script>
