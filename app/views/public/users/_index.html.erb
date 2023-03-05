@@ -2,15 +2,15 @@
 <h5 class="my-5 text-center top1"><i class="fas fa-pencil-alt"></i> <%= user.name %>さんの投稿(<%= posts.count %>件)</h5>
   <div class="post_list mb-3  d-flex flex-wrap d-grid gap-5 justify-content-center ">
     <% posts.each do |post| %>
-    <div class="post shadow background">
+    <div class="post shadow background col-md-6 mx-auto">
       <%= link_to post_path(post.id),data: {"turbolinks" => false} do %>
         <% if post.images.attached? %>
         <div>
-          <div id="carouselExampleInterval_<%= post.id %>" class="carousel slide " data-bs-ride="carousel" style="width: 200px; height: 200px;">
-            <div class="carousel-inner">
+          <div id="carouselExampleInterval_<%= post.id %>" class="carousel slide " data-bs-ride="carousel" >
+            <div class="carousel-inner" ,style=" height: 200px;">
               <% post.images.each_with_index do |image, i| %>
                 <div class="carousel-item <%= "active" if i == 0 %>" data-bs-interval="5000">
-                  <%= image_tag image, class: "post_image color", size: '200x200'%>
+                  <%= image_tag image, class: "post_image_new color"%>
                 </div>
               <% end %>
             </div>
@@ -24,7 +24,7 @@
         </div>
         <% else %>
         <div>
-          <%= image_tag 'no_post_image.jpg', size: '300x300' %>
+          <%= image_tag 'no_post_image.jpg', class: "post_image_new"%>
         </div>
         <% end %>
 

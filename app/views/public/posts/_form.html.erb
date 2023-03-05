@@ -54,7 +54,7 @@
   	for (i = 0; i < obj.files.length; i++) {
   		var fileReader = new FileReader();
   		fileReader.onload = (function (e) {
-  			document.getElementById('preview').innerHTML += '<img class="img-fluid mb-2" src="' + e.target.result + '">';
+  			document.getElementById('preview').innerHTML += '<img class="img-fluid m-2" width="150" src="' + e.target.result + '">';
   		});
   		fileReader.readAsDataURL(obj.files[i]);
   	}
