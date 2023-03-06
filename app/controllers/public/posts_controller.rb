@@ -38,7 +38,7 @@ class Public::PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     @tags = Tag.last(5)
-    redirect_to posts_path
+    # redirect_to posts_path 不必要　editに行くがこれ書くとpost_indexの画面に行ってしまう
   end
 
   def update

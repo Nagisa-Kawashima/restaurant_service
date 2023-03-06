@@ -48,8 +48,8 @@
       <p class="like-btn"><%= render 'public/likes/btn', post: post %></p>
     </div>
     <div class="text-center">
-    <% if post.user == current_user %>
-      <%= link_to '編集', edit_post_path, class: 'btn btn-primary w-50'%>
+    <% if post.user == current_user%>
+      <%= link_to '編集', edit_post_path(post), class: 'btn btn-primary w-50'%>
     <% end %>
     </div>
   </div>
